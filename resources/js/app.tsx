@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 
 createInertiaApp({
     resolve: (name: string) => {
-        const pages = import.meta.glob("./Pages/**/*.tsx", {
+        const pages = import.meta.glob("./Pages/**/!(*.spec).tsx", {
             eager: true,
         });
         return pages[`./Pages/${name}.tsx`];
