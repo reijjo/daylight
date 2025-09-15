@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for js/components/shared/Layout.tsx</title>
+    <title>Code coverage report for js/components/ui/Input.tsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../../prettify.css" />
     <link rel="stylesheet" href="../../../base.css" />
@@ -19,20 +19,20 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../../index.html">All files</a> / <a href="index.html">js/components/shared</a> Layout.tsx</h1>
+        <h1><a href="../../../index.html">All files</a> / <a href="index.html">js/components/ui</a> Input.tsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>12/12</span>
+                <span class='fraction'>11/11</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>1/2</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>12/12</span>
+                <span class='fraction'>11/11</span>
             </div>
         
             
@@ -83,13 +83,8 @@
 <a name='L18'></a><a href='#L18'>18</a>
 <a name='L19'></a><a href='#L19'>19</a>
 <a name='L20'></a><a href='#L20'>20</a>
-<a name='L21'></a><a href='#L21'>21</a>
-<a name='L22'></a><a href='#L22'>22</a>
-<a name='L23'></a><a href='#L23'>23</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L21'></a><a href='#L21'>21</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -100,35 +95,34 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Head } from "@inertiajs/react";
-import { ReactNode } from "react";
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { InputHTMLAttributes } from "react";
 &nbsp;
-import bg from "../../../assets/images/bg-test.jpg";
-import { Footer } from "./Footer";
-&nbsp;
-interface LayoutProps {
-    children: ReactNode;
-    title: string;
+interface InputProps extends InputHTMLAttributes&lt;HTMLInputElement&gt; {
+    type?: string;
+    label?: string;
+    id: string;
 }
 &nbsp;
-export const Layout = ({ children, title }: LayoutProps) =&gt; (
-    &lt;div
-        className="min-h-screen h-full flex flex-col w-full bg-center bg-cover relative text-white"
-        style={{ backgroundImage: `url(${bg})` }}
-    &gt;
-        &lt;div className="absolute inset-0 bg-black/60"&gt;&lt;/div&gt;
-        &lt;Head title={title} /&gt;
-        &lt;main className="flex flex-col grow relative z-1"&gt;{children}&lt;/main&gt;
-        &lt;Footer /&gt;
-    &lt;/div&gt;
-);
+export const Input = ({ type = "text", id, label, ...rest }: InputProps) =&gt; {
+    return (
+        &lt;div className="flex flex-col w-full gap-1"&gt;
+            {<span class="branch-0 cbranch-no" title="branch not covered" >label &amp;&amp; &lt;label htmlFor={id}&gt;{label}&lt;/label&gt;}</span>
+            &lt;input
+                type={type}
+                {...rest}
+                className="border bg-white/80 px-4 py-2 rounded-4xl h-12 placeholder:text-black/60 text-black"
+            /&gt;
+        &lt;/div&gt;
+    );
+};
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->

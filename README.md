@@ -14,6 +14,8 @@ Run frontend unit tests with `npm run test`
 
 ## Tech Stack
 
+## Task
+
 <details>
 	<summary>The task itself</summary>
 	<pIntro:
