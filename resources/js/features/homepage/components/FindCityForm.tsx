@@ -1,88 +1,94 @@
-import { FormEvent, useState } from "react";
+import { useState } from "react";
 import { Input } from "../../../components/ui/Input";
 import { getCities } from "../api/daylightApi";
 import { FoundCity } from "../../../utils/types";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { CitySuggestions } from "./CitySuggestions";
+import { useMutation } from "@tanstack/react-query";
+import { Message } from "../../../components/ui/Message";
+
+type FormValues = {
+    city: string;
+};
 
 export const FindCityForm = () => {
-    const [cityInput, setCityInput] = useState<string>("");
-    const [suggestions, setSuggestions] = useState<FoundCity[] | null>(null);
     const [selectedCity, setSelectedCity] = useState<FoundCity | null>(null);
 
-    const submit = async (e: FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        const found = await getCities(cityInput);
+    const searchMutation = useMutation({
+        mutationFn: (city: string) => getCities(city),
+        onSuccess: (data) => {
+            console.log("Search results", data);
+        },
+        onError: (error: unknown) => {
+            console.log("Search error", error);
+        },
+    });
 
-        setSuggestions(found.data);
-        setCityInput("");
-    };
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+        clearErrors,
+        setValue,
+    } = useForm<{ city: string }>({
+        mode: "onChange",
+    });
 
-    const parseCity = (displayName: string) => {
-        const parts = displayName.split(",").map((p) => p.trim());
-        const [first, second, ...rest] = parts;
-
-        return (
-            <span>
-                <span className="font-bold uppercase">{first}</span>
-                {second && (
-                    <>
-                        , <span className="font-bold">{second}</span>,
-                    </>
-                )}
-                {rest.length > 0 && <p>{`${rest.join(", ")}`}</p>}
-            </span>
-        );
+    const onSubmit: SubmitHandler<FormValues> = async (data) => {
+        searchMutation.mutate(data.city);
     };
 
     const handleCitySelection = (cityName: FoundCity) => {
-        setSuggestions(null);
         setSelectedCity(cityName);
-        setCityInput("");
+        searchMutation.reset();
+        setValue("city", "");
     };
 
-    console.log("suggestions", suggestions);
+    console.log("suggestions", searchMutation.data);
     console.log("selectedCity", selectedCity?.display_name);
 
     return (
-        <>
-            <form
-                onSubmit={submit}
-                className="max-w-sm w-8/10 flex flex-col gap-2 sm:flex-row sm:max-w-md"
-            >
-                <div className="w-full flex flex-col gap-1">
-                    <Input
-                        id="city"
-                        placeholder="Find a city"
-                        value={cityInput}
-                        onChange={(e) => {
-                            setCityInput(e.target.value);
-                            setSelectedCity(null);
-                        }}
-                    />
-                    {suggestions && suggestions[0].name !== "Finland" && (
-                        <div className="w-full bg-white/80 text-black rounded-2xl overflow-hidden shadow-lg shadow-white/20">
-                            {suggestions?.map((found, index) => (
-                                <button
-                                    type="button"
-                                    onClick={() => handleCitySelection(found)}
-                                    key={index}
-                                    className="text-balance text-start border-b last:border-none border-black cursor-pointer hover:bg-white/90 py-2 px-4 transition-colors duration-150"
-                                >
-                                    {parseCity(found.display_name)}
-                                </button>
-                            ))}
-                        </div>
+        <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="max-w-sm w-8/10 flex flex-col gap-2 sm:flex-row sm:max-w-md"
+        >
+            <div className="w-full flex flex-col gap-1">
+                <Input
+                    id="city"
+                    placeholder="Find a city"
+                    {...register("city", {
+                        required: "City is required.",
+                        maxLength: {
+                            value: 100,
+                            message: "Max 100 characters",
+                        },
+                    })}
+                    onChange={() => {
+                        clearErrors("city");
+                    }}
+                />
+                {searchMutation.isPending && (
+                    <Message message="Loading..." type="info" />
+                )}
+                {searchMutation.data?.data.length === 0 &&
+                    searchMutation.isSuccess && (
+                        <Message message="No cities found." type="error" />
                     )}
-                </div>
-                <button
-                    type="submit"
-                    className="border border-white/20 px-4 py-2 rounded-4xl h-12 cursor-pointer whitespace-nowrap bg-emerald-800/75 hover:bg-emerald-700 active:scale-90 transition-all duration-150 ease-in"
-                >
-                    Search
-                </button>
-            </form>
-            {suggestions?.length === 1 && suggestions[0].name === "Finland" && (
-                <div className="px-2 py-1">No cities found.</div>
-            )}
-        </>
+                {errors.city && (
+                    <Message type="error" message={errors.city?.message} />
+                )}
+                <CitySuggestions
+                    suggestions={searchMutation.data?.data || null}
+                    handleCitySelection={handleCitySelection}
+                />
+            </div>
+            <button
+                type="submit"
+                disabled={searchMutation.isPending}
+                className="border border-white/20 px-4 py-2 rounded-4xl h-12 cursor-pointer whitespace-nowrap bg-emerald-800/75 hover:bg-emerald-700 active:scale-90 transition-all duration-150 ease-in disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+                Search
+            </button>
+        </form>
     );
 };
