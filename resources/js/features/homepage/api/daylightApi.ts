@@ -1,11 +1,20 @@
 import axios, { isAxiosError } from "axios";
+import { FoundCity } from "../../../utils/types";
 
 export const getCities = async (city: string) => {
     try {
         const res = await axios.get(
-            `https://nominatim.openstreetmap.org/search?city=${city}&country={fi}&format=json&limit=4`
+            `https://nominatim.openstreetmap.org/search`,
+            {
+                params: {
+                    city: city,
+                    country: "fi",
+                    format: "json",
+                    limit: 4,
+                },
+            }
         );
-        return res;
+        return res.data;
     } catch (error: unknown) {
         if (isAxiosError(error)) {
             throw new Error(error.response?.data.message);
@@ -14,4 +23,21 @@ export const getCities = async (city: string) => {
     }
 };
 
-export const getDaylight = () => {};
+export const getDaylight = async (city: Partial<FoundCity>) => {
+    try {
+        const res = await axios.get("/api/daylight", {
+            params: {
+                place_id: city.place_id,
+                lat: city.lat,
+                lon: city.lon,
+                name: city.name,
+            },
+        });
+        return res.data;
+    } catch (error: unknown) {
+        if (isAxiosError(error)) {
+            throw new Error(error.response?.data.message);
+        }
+        throw error;
+    }
+};

@@ -1,51 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1757755612990" clover="3.2.0">
-  <project timestamp="1757755612990" name="All files">
-    <metrics statements="111" coveredstatements="70" conditionals="10" coveredconditionals="7" methods="11" coveredmethods="7" elements="132" coveredelements="84" complexity="0" loc="111" ncloc="111" packages="8" files="9" classes="9"/>
-    <package name="js">
-      <metrics statements="18" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
-      <file name="app.tsx" path="/Users/reijjo/workspace/projects/fullstack/daylight/resources/js/app.tsx">
-        <metrics statements="18" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="1" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="3" count="0" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="21" count="0" type="stmt"/>
-      </file>
-    </package>
-    <package name="js.Pages.homepage">
-      <metrics statements="13" coveredstatements="13" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+<coverage generated="1758038424665" clover="3.2.0">
+  <project timestamp="1758038424665" name="All files">
+    <metrics statements="304" coveredstatements="250" conditionals="37" coveredconditionals="32" methods="29" coveredmethods="20" elements="370" coveredelements="302" complexity="0" loc="304" ncloc="304" packages="9" files="13" classes="13"/>
+    <package name="Pages.homepage">
+      <metrics statements="44" coveredstatements="35" conditionals="3" coveredconditionals="1" methods="2" coveredmethods="1"/>
       <file name="HomePage.tsx" path="/Users/reijjo/workspace/projects/fullstack/daylight/resources/js/Pages/homepage/HomePage.tsx">
-        <metrics statements="13" coveredstatements="13" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <metrics statements="44" coveredstatements="35" conditionals="3" coveredconditionals="1" methods="2" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
-        <line num="5" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="6" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
         <line num="7" count="1" type="stmt"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="9" count="1" type="stmt"/>
+        <line num="9" count="1" type="cond" truecount="1" falsecount="0"/>
         <line num="10" count="1" type="stmt"/>
         <line num="11" count="1" type="stmt"/>
         <line num="12" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
         <line num="14" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
         <line num="16" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="43" count="1" type="cond" truecount="0" falsecount="2"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="46" count="1" type="stmt"/>
+        <line num="47" count="1" type="stmt"/>
+        <line num="48" count="1" type="stmt"/>
+        <line num="50" count="1" type="stmt"/>
+        <line num="52" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="js.Pages.homepage.hero">
+    <package name="Pages.homepage.hero">
       <metrics statements="7" coveredstatements="7" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
       <file name="Hero.tsx" path="/Users/reijjo/workspace/projects/fullstack/daylight/resources/js/Pages/homepage/hero/Hero.tsx">
         <metrics statements="7" coveredstatements="7" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
@@ -58,7 +65,7 @@
         <line num="10" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="js.components.shared">
+    <package name="components.shared">
       <metrics statements="16" coveredstatements="16" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
       <file name="Footer.tsx" path="/Users/reijjo/workspace/projects/fullstack/daylight/resources/js/components/shared/Footer.tsx">
         <metrics statements="4" coveredstatements="4" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
@@ -83,82 +90,283 @@
         <line num="21" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="js.components.ui">
-      <metrics statements="11" coveredstatements="11" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
+    <package name="components.ui">
+      <metrics statements="18" coveredstatements="18" conditionals="5" coveredconditionals="4" methods="2" coveredmethods="2"/>
       <file name="Input.tsx" path="/Users/reijjo/workspace/projects/fullstack/daylight/resources/js/components/ui/Input.tsx">
-        <metrics statements="11" coveredstatements="11" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
-        <line num="9" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="10" count="1" type="stmt"/>
-        <line num="11" count="1" type="stmt"/>
-        <line num="12" count="1" type="cond" truecount="0" falsecount="1"/>
-        <line num="13" count="1" type="stmt"/>
+        <metrics statements="10" coveredstatements="10" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <line num="8" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="9" count="18" type="stmt"/>
+        <line num="10" count="18" type="stmt"/>
+        <line num="11" count="18" type="stmt"/>
+        <line num="12" count="18" type="stmt"/>
+        <line num="13" count="18" type="stmt"/>
+        <line num="14" count="18" type="stmt"/>
+        <line num="15" count="18" type="stmt"/>
+        <line num="16" count="18" type="stmt"/>
+        <line num="18" count="18" type="stmt"/>
+      </file>
+      <file name="Message.tsx" path="/Users/reijjo/workspace/projects/fullstack/daylight/resources/js/components/ui/Message.tsx">
+        <metrics statements="8" coveredstatements="8" conditionals="4" coveredconditionals="3" methods="1" coveredmethods="1"/>
+        <line num="6" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="7" count="5" type="stmt"/>
+        <line num="8" count="5" type="stmt"/>
+        <line num="9" count="5" type="cond" truecount="1" falsecount="0"/>
+        <line num="10" count="5" type="cond" truecount="0" falsecount="1"/>
+        <line num="11" count="5" type="cond" truecount="1" falsecount="0"/>
+        <line num="14" count="5" type="stmt"/>
+        <line num="15" count="5" type="stmt"/>
+      </file>
+    </package>
+    <package name="features.homepage.api">
+      <metrics statements="40" coveredstatements="18" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="1"/>
+      <file name="daylightApi.ts" path="/Users/reijjo/workspace/projects/fullstack/daylight/resources/js/features/homepage/api/daylightApi.ts">
+        <metrics statements="40" coveredstatements="18" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="4" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="18" count="2" type="cond" truecount="0" falsecount="1"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="24" count="2" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="43" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="features.homepage.components">
+      <metrics statements="103" coveredstatements="103" conditionals="18" coveredconditionals="17" methods="7" coveredmethods="7"/>
+      <file name="CitySuggestions.tsx" path="/Users/reijjo/workspace/projects/fullstack/daylight/resources/js/features/homepage/components/CitySuggestions.tsx">
+        <metrics statements="33" coveredstatements="33" conditionals="6" coveredconditionals="6" methods="3" coveredmethods="3"/>
+        <line num="8" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="9" count="18" type="stmt"/>
+        <line num="10" count="18" type="stmt"/>
+        <line num="11" count="18" type="stmt"/>
+        <line num="12" count="18" type="cond" truecount="1" falsecount="0"/>
+        <line num="13" count="1" type="cond" truecount="1" falsecount="0"/>
         <line num="14" count="1" type="stmt"/>
-        <line num="15" count="1" type="stmt"/>
         <line num="16" count="1" type="stmt"/>
         <line num="17" count="1" type="stmt"/>
         <line num="18" count="1" type="stmt"/>
-        <line num="20" count="1" type="stmt"/>
-      </file>
-    </package>
-    <package name="js.features.homepage.api">
-      <metrics statements="15" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
-      <file name="daylightApi.ts" path="/Users/reijjo/workspace/projects/fullstack/daylight/resources/js/features/homepage/api/daylightApi.ts">
-        <metrics statements="15" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="1" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="3" count="0" type="stmt"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-      </file>
-    </package>
-    <package name="js.features.homepage.components">
-      <metrics statements="31" coveredstatements="23" conditionals="1" coveredconditionals="1" methods="3" coveredmethods="1"/>
-      <file name="FindCityForm.tsx" path="/Users/reijjo/workspace/projects/fullstack/daylight/resources/js/features/homepage/components/FindCityForm.tsx">
-        <metrics statements="31" coveredstatements="23" conditionals="1" coveredconditionals="1" methods="3" coveredmethods="1"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="2" count="1" type="stmt"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="5" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
         <line num="19" count="1" type="stmt"/>
         <line num="20" count="1" type="stmt"/>
         <line num="21" count="1" type="stmt"/>
         <line num="22" count="1" type="stmt"/>
         <line num="24" count="1" type="stmt"/>
         <line num="25" count="1" type="stmt"/>
-        <line num="26" count="1" type="stmt"/>
         <line num="27" count="1" type="stmt"/>
-        <line num="28" count="1" type="stmt"/>
-        <line num="29" count="1" type="stmt"/>
-        <line num="30" count="1" type="stmt"/>
-        <line num="31" count="1" type="stmt"/>
-        <line num="32" count="1" type="stmt"/>
-        <line num="33" count="1" type="stmt"/>
+        <line num="29" count="18" type="stmt"/>
+        <line num="30" count="18" type="stmt"/>
+        <line num="31" count="18" type="cond" truecount="1" falsecount="0"/>
+        <line num="32" count="2" type="stmt"/>
+        <line num="33" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="34" count="1" type="stmt"/>
         <line num="35" count="1" type="stmt"/>
-        <line num="36" count="1" type="stmt"/>
+        <line num="36" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="37" count="1" type="stmt"/>
         <line num="38" count="1" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="42" count="2" type="stmt"/>
+        <line num="43" count="2" type="stmt"/>
+        <line num="45" count="18" type="stmt"/>
+        <line num="47" count="18" type="stmt"/>
+      </file>
+      <file name="FindCityForm.tsx" path="/Users/reijjo/workspace/projects/fullstack/daylight/resources/js/features/homepage/components/FindCityForm.tsx">
+        <metrics statements="70" coveredstatements="70" conditionals="12" coveredconditionals="11" methods="4" coveredmethods="4"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="17" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="18" count="21" type="stmt"/>
+        <line num="19" count="21" type="stmt"/>
+        <line num="20" count="21" type="stmt"/>
+        <line num="21" count="21" type="stmt"/>
+        <line num="23" count="21" type="stmt"/>
+        <line num="24" count="21" type="stmt"/>
+        <line num="25" count="21" type="stmt"/>
+        <line num="26" count="21" type="stmt"/>
+        <line num="27" count="21" type="stmt"/>
+        <line num="28" count="21" type="stmt"/>
+        <line num="29" count="21" type="stmt"/>
+        <line num="30" count="21" type="stmt"/>
+        <line num="31" count="21" type="stmt"/>
+        <line num="33" count="21" type="cond" truecount="1" falsecount="0"/>
+        <line num="34" count="2" type="stmt"/>
+        <line num="35" count="2" type="stmt"/>
+        <line num="36" count="2" type="stmt"/>
+        <line num="38" count="21" type="cond" truecount="1" falsecount="0"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
+        <line num="45" count="21" type="stmt"/>
+        <line num="46" count="21" type="stmt"/>
+        <line num="47" count="21" type="stmt"/>
+        <line num="48" count="21" type="stmt"/>
+        <line num="49" count="21" type="stmt"/>
+        <line num="51" count="21" type="stmt"/>
+        <line num="52" count="21" type="stmt"/>
+        <line num="53" count="21" type="stmt"/>
+        <line num="54" count="21" type="stmt"/>
+        <line num="55" count="21" type="stmt"/>
+        <line num="56" count="21" type="stmt"/>
+        <line num="57" count="21" type="stmt"/>
+        <line num="58" count="21" type="stmt"/>
+        <line num="59" count="21" type="stmt"/>
+        <line num="60" count="21" type="stmt"/>
+        <line num="61" count="21" type="stmt"/>
+        <line num="62" count="21" type="cond" truecount="1" falsecount="0"/>
+        <line num="63" count="4" type="stmt"/>
+        <line num="65" count="4" type="stmt"/>
+        <line num="66" count="21" type="stmt"/>
+        <line num="67" count="21" type="stmt"/>
+        <line num="68" count="21" type="stmt"/>
+        <line num="69" count="21" type="stmt"/>
+        <line num="70" count="21" type="cond" truecount="1" falsecount="0"/>
+        <line num="71" count="21" type="stmt"/>
+        <line num="72" count="21" type="stmt"/>
+        <line num="74" count="21" type="stmt"/>
+        <line num="75" count="21" type="stmt"/>
+        <line num="76" count="21" type="cond" truecount="1" falsecount="0"/>
+        <line num="77" count="4" type="stmt"/>
+        <line num="79" count="21" type="cond" truecount="0" falsecount="1"/>
+        <line num="80" count="21" type="cond" truecount="3" falsecount="0"/>
+        <line num="81" count="1" type="stmt"/>
+        <line num="83" count="21" type="cond" truecount="1" falsecount="0"/>
+        <line num="84" count="3" type="stmt"/>
+        <line num="86" count="21" type="stmt"/>
+        <line num="87" count="21" type="cond" truecount="1" falsecount="0"/>
+        <line num="88" count="21" type="stmt"/>
+        <line num="89" count="21" type="stmt"/>
+        <line num="90" count="21" type="stmt"/>
+        <line num="92" count="21" type="stmt"/>
       </file>
     </package>
-    <package name="js.utils">
+    <package name="features.homepage.hooks">
+      <metrics statements="57" coveredstatements="34" conditionals="3" coveredconditionals="3" methods="10" coveredmethods="3"/>
+      <file name="useCitySearch.ts" path="/Users/reijjo/workspace/projects/fullstack/daylight/resources/js/features/homepage/hooks/useCitySearch.ts">
+        <metrics statements="18" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="2"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="6" count="21" type="stmt"/>
+        <line num="7" count="21" type="cond" truecount="1" falsecount="0"/>
+        <line num="11" count="21" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="14" count="21" type="stmt"/>
+        <line num="16" count="21" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="21" count="21" type="stmt"/>
+        <line num="22" count="21" type="stmt"/>
+        <line num="23" count="21" type="stmt"/>
+        <line num="24" count="21" type="stmt"/>
+        <line num="25" count="21" type="stmt"/>
+      </file>
+      <file name="useDaylight.ts" path="/Users/reijjo/workspace/projects/fullstack/daylight/resources/js/features/homepage/hooks/useDaylight.ts">
+        <metrics statements="39" coveredstatements="21" conditionals="1" coveredconditionals="1" methods="6" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
+        <line num="44" count="1" type="stmt"/>
+        <line num="45" count="1" type="stmt"/>
+        <line num="46" count="1" type="stmt"/>
+        <line num="47" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="tests">
+      <metrics statements="19" coveredstatements="19" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+      <file name="test-utils.tsx" path="/Users/reijjo/workspace/projects/fullstack/daylight/resources/js/tests/test-utils.tsx">
+        <metrics statements="19" coveredstatements="19" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="6" count="4" type="stmt"/>
+        <line num="7" count="4" type="stmt"/>
+        <line num="8" count="4" type="stmt"/>
+        <line num="9" count="4" type="stmt"/>
+        <line num="10" count="4" type="stmt"/>
+        <line num="11" count="4" type="stmt"/>
+        <line num="12" count="4" type="stmt"/>
+        <line num="13" count="4" type="stmt"/>
+        <line num="14" count="4" type="stmt"/>
+        <line num="15" count="4" type="stmt"/>
+        <line num="17" count="4" type="cond" truecount="1" falsecount="0"/>
+        <line num="18" count="4" type="stmt"/>
+        <line num="19" count="4" type="stmt"/>
+        <line num="20" count="4" type="stmt"/>
+        <line num="23" count="4" type="stmt"/>
+        <line num="24" count="4" type="stmt"/>
+      </file>
+    </package>
+    <package name="utils">
       <metrics statements="0" coveredstatements="0" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
       <file name="types.ts" path="/Users/reijjo/workspace/projects/fullstack/daylight/resources/js/utils/types.ts">
         <metrics statements="0" coveredstatements="0" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>

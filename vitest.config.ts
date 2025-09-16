@@ -25,6 +25,7 @@ export default defineConfig({
                 "**/*.js",
                 "dist/",
                 "coverage/",
+                "**/js/app.tsx",
             ],
         },
     },

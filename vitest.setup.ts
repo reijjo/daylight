@@ -1,5 +1,6 @@
 // import "@testing-library/jest-dom";
-import { vi } from "vitest";
+import { afterEach, vi } from "vitest";
+import { cleanup } from "@testing-library/react";
 
 vi.mock("@inertiajs/react", () => ({
     Head: ({ children }: { children?: React.ReactNode }) => {
@@ -29,3 +30,8 @@ vi.mock("@inertiajs/react", () => ({
         recentlySuccessful: false,
     }),
 }));
+
+afterEach(() => {
+    vi.clearAllMocks();
+    cleanup();
+});
