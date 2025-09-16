@@ -1,15 +1,34 @@
 import { FindCityForm } from "./FindCityForm";
 import { renderWithQueryClient } from "../../../tests/test-utils";
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { screen } from "@testing-library/react";
+import { screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
+import { useDaylight } from "../hooks/useDaylight";
+import { use } from "react";
+import { DaylightData } from "../../../utils/types";
 
 vi.mock("../api/daylightApi", async () => {
     const actual = await vi.importActual("../api/daylightApi");
     return {
         ...actual,
         getDaylight: () => Promise.resolve([]),
+    };
+});
+
+const useDaylightMock = vi.fn(() => {
+    return {
+        savedCities: [],
+        daylightMutation: {
+            isLoading: true,
+            mutate: vi.fn(),
+            data: null,
+            error: null,
+            isPending: false,
+        },
+        removeCity: vi.fn(),
+        removeAllCities: vi.fn(),
+        error: null,
     };
 });
 
@@ -80,6 +99,20 @@ describe("FindCityForm", () => {
                 /max 100 characters/i
             );
             expect(noCitiesFound).toBeInTheDocument();
+        });
+
+        test("Adding city...", async () => {
+            const mockIsAddingCityTrue = true;
+
+            renderWithQueryClient(
+                <FindCityForm
+                    handleCitySelect={mockHandleCitySelect}
+                    isAddingCity={mockIsAddingCityTrue}
+                />
+            );
+
+            const addingCity = await screen.findByText(/adding city/i);
+            expect(addingCity).toBeInTheDocument();
         });
     });
 });

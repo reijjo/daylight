@@ -22,3 +22,18 @@ export function renderWithQueryClient(
 
     return render(ui, { wrapper: Wrapper, ...options });
 }
+
+export const createWrapper = () => {
+    const queryClient = new QueryClient({
+        defaultOptions: {
+            queries: { retry: false },
+            mutations: { retry: false },
+        },
+    });
+
+    return ({ children }: { children: React.ReactNode }) => (
+        <QueryClientProvider client={queryClient}>
+            {children}
+        </QueryClientProvider>
+    );
+};
