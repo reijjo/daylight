@@ -5,6 +5,7 @@ import { FindCityForm } from "../../features/homepage/components/FindCityForm";
 import { useDaylight } from "../../features/homepage/hooks/useDaylight";
 import { FoundCity } from "../../utils/types";
 import { Hero } from "./hero/Hero";
+import CityList from "../../features/homepage/components/CityList";
 
 const HomePage = () => {
     const {
@@ -37,16 +38,11 @@ const HomePage = () => {
                     handleCitySelect={handleCitySelect}
                     isAddingCity={isLoading}
                 />
-                <div className="flex flex-col items-center gap-4">
-                    {savedCities.map((city) => (
-                        <p key={city.id}>{city.city}</p>
-                    ))}
-                    {savedCities.length >= 6 && msg && (
-                        <Message message={msg as string} type="info" />
-                    )}
-
-                    {dataMsg && <Message message={dataMsg} type="success" />}
-                </div>
+                <CityList
+                    savedCities={savedCities}
+                    msg={msg}
+                    dataMsg={dataMsg}
+                />
             </div>
         </Layout>
     );
