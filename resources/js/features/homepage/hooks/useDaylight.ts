@@ -2,7 +2,6 @@ import { useMutation } from "@tanstack/react-query";
 import { DaylightData, FoundCity } from "../../../utils/types";
 import { getDaylight } from "../api/daylightApi";
 import { useState } from "react";
-import { set } from "react-hook-form";
 
 export const useDaylight = () => {
     const [savedCities, setSavedCities] = useState<DaylightData[]>([]);
