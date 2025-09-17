@@ -12,13 +12,13 @@ type FormValues = {
 interface FindCityFormProps {
     handleCitySelect: (city: FoundCity) => void;
     isAddingCity: boolean;
-    dataMsg: string | null;
+    msg?: string;
 }
 
 export const FindCityForm = ({
     handleCitySelect,
     isAddingCity,
-    dataMsg,
+    msg,
 }: FindCityFormProps) => {
     const { searchMutation } = useCitySearch();
 
@@ -82,10 +82,10 @@ export const FindCityForm = ({
             {searchMutation.data?.length === 0 && searchMutation.isSuccess && (
                 <Message message="No cities found." type="error" />
             )}
-            {errors.city && (
+            {errors.city?.message && (
                 <Message type="error" message={errors.city?.message} />
             )}
-            {dataMsg && <Message message={dataMsg} type="success" />}
+            {msg && <Message message={msg} type="success" />}
 
             <CitySuggestions
                 suggestions={searchMutation?.data || null}

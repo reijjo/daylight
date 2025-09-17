@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">53.84% </span>
+                <span class="strong">46.15% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>21/39</span>
+                <span class='fraction'>24/52</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">53.84% </span>
+                <span class="strong">46.15% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>21/39</span>
+                <span class='fraction'>24/52</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -110,17 +110,40 @@
 <a name='L45'></a><a href='#L45'>45</a>
 <a name='L46'></a><a href='#L46'>46</a>
 <a name='L47'></a><a href='#L47'>47</a>
-<a name='L48'></a><a href='#L48'>48</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -129,6 +152,12 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -148,6 +177,7 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -161,14 +191,22 @@
 import { DaylightData, FoundCity } from "../../../utils/types";
 import { getDaylight } from "../api/daylightApi";
 import { useState } from "react";
+import { MAX_CITIES } from "../../../utils/constants";
 &nbsp;
 export const useDaylight = () =&gt; {
     const [savedCities, setSavedCities] = useState&lt;DaylightData[]&gt;([]);
+    const [msg, setMsg] = useState&lt;string&gt;("");
 &nbsp;
     const daylightMutation = useMutation({
         mutationFn: <span class="fstat-no" title="function not covered" >(city: FoundCity) =&gt; getDaylight(city),</span>
         onSuccess: <span class="fstat-no" title="function not covered" >(data) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >            const newCity: DaylightData = data;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (savedCities.length &gt;= MAX_CITIES) {</span>
+<span class="cstat-no" title="statement not covered" >                setMsg("Max 6 cities");</span>
+<span class="cstat-no" title="statement not covered" >                setTimeout(() =&gt; setMsg(""), 5000);</span>
+<span class="cstat-no" title="statement not covered" >                return;</span>
+<span class="cstat-no" title="statement not covered" >            }</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >            setSavedCities((prev) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >                const exists = prev.some((city) =&gt; city.id === newCity.id);</span>
@@ -181,6 +219,12 @@ export const useDaylight = () =&gt; {
 <span class="cstat-no" title="statement not covered" >                    return [...prev, newCity];</span>
 <span class="cstat-no" title="statement not covered" >                }</span>
 <span class="cstat-no" title="statement not covered" >            });</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (data.message) {</span>
+<span class="cstat-no" title="statement not covered" >                setMsg(data.message);</span>
+<span class="cstat-no" title="statement not covered" >                setTimeout(() =&gt; setMsg(""), 5000);</span>
+<span class="cstat-no" title="statement not covered" >            }</span>
+<span class="cstat-no" title="statement not covered" >            console.log("data.messagge", data.message);</span>
 <span class="cstat-no" title="statement not covered" >        },</span>
         onError: <span class="fstat-no" title="function not covered" >(error: unknown) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >            console.log("Daylight error", error);</span>
@@ -202,6 +246,7 @@ export const useDaylight = () =&gt; {
         removeAllCities,
         isLoading: daylightMutation.isPending,
         error: daylightMutation.error,
+        msg,
     };
 };
 &nbsp;</pre></td></tr></table></pre>
@@ -211,7 +256,7 @@ export const useDaylight = () =&gt; {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-09-17T09:13:44.682Z
+                at 2025-09-17T14:16:37.593Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

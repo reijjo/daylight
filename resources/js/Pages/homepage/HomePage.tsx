@@ -1,6 +1,4 @@
-import { useState } from "react";
 import { Layout } from "../../components/shared/Layout";
-import { Message } from "../../components/ui/Message";
 import { FindCityForm } from "../../features/homepage/components/FindCityForm";
 import { useDaylight } from "../../features/homepage/hooks/useDaylight";
 import { FoundCity } from "../../utils/types";
@@ -15,16 +13,10 @@ const HomePage = () => {
         removeAllCities,
         isLoading,
         error,
-        dataMsg,
+        msg,
     } = useDaylight();
-    const [msg, setMsg] = useState<string | null>(null);
 
     const handleCitySelect = (city: FoundCity) => {
-        if (savedCities.length >= 6) {
-            setMsg("Max 6 cities");
-            setTimeout(() => setMsg(null), 5000);
-            return;
-        }
         daylightMutation.mutate(city);
     };
 
@@ -37,9 +29,9 @@ const HomePage = () => {
                 <FindCityForm
                     handleCitySelect={handleCitySelect}
                     isAddingCity={isLoading}
-                    dataMsg={dataMsg}
+                    msg={msg}
                 />
-                <CityList savedCities={savedCities} msg={msg} />
+                <CityList savedCities={savedCities} />
             </div>
         </Layout>
     );

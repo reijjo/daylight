@@ -10,6 +10,7 @@ vi.mock("../api/daylightApi", async () => {
     return {
         ...actual,
         getDaylight: () => Promise.resolve([]),
+        getDCities: () => Promise.resolve([]),
     };
 });
 
@@ -42,7 +43,6 @@ describe("FindCityForm", () => {
             <FindCityForm
                 handleCitySelect={mockHandleCitySelect}
                 isAddingCity={mockIsAddingCity}
-                dataMsg={null}
             />
         );
 
@@ -66,7 +66,6 @@ describe("FindCityForm", () => {
                 <FindCityForm
                     handleCitySelect={mockHandleCitySelect}
                     isAddingCity={mockIsAddingCity}
-                    dataMsg={null}
                 />
             );
 
@@ -85,7 +84,6 @@ describe("FindCityForm", () => {
                 <FindCityForm
                     handleCitySelect={mockHandleCitySelect}
                     isAddingCity={mockIsAddingCity}
-                    dataMsg={null}
                 />
             );
 
@@ -108,12 +106,22 @@ describe("FindCityForm", () => {
                 <FindCityForm
                     handleCitySelect={mockHandleCitySelect}
                     isAddingCity={mockIsAddingCityTrue}
-                    dataMsg={null}
                 />
             );
 
             const addingCity = await screen.findByText(/adding city/i);
             expect(addingCity).toBeInTheDocument();
+        });
+
+        test("shows success message when msg provided", async () => {
+            renderWithQueryClient(
+                <FindCityForm
+                    handleCitySelect={mockHandleCitySelect}
+                    isAddingCity={false}
+                    msg="City added!"
+                />
+            );
+            expect(await screen.findByText(/city added!/i)).toBeInTheDocument();
         });
     });
 });
