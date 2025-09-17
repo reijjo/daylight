@@ -2,15 +2,22 @@ import { useMutation } from "@tanstack/react-query";
 import { DaylightData, FoundCity } from "../../../utils/types";
 import { getDaylight } from "../api/daylightApi";
 import { useState } from "react";
+import { MAX_CITIES } from "../../../utils/constants";
 
 export const useDaylight = () => {
     const [savedCities, setSavedCities] = useState<DaylightData[]>([]);
-    const [dataMsg, setDataMsg] = useState<string | null>(null);
+    const [msg, setMsg] = useState<string>("");
 
     const daylightMutation = useMutation({
         mutationFn: (city: FoundCity) => getDaylight(city),
         onSuccess: (data) => {
             const newCity: DaylightData = data;
+
+            if (savedCities.length >= MAX_CITIES) {
+                setMsg("Max 6 cities");
+                setTimeout(() => setMsg(""), 5000);
+                return;
+            }
 
             setSavedCities((prev) => {
                 const exists = prev.some((city) => city.id === newCity.id);
@@ -25,8 +32,8 @@ export const useDaylight = () => {
             });
 
             if (data.message) {
-                setDataMsg(data.message);
-                setTimeout(() => setDataMsg(null), 5000);
+                setMsg(data.message);
+                setTimeout(() => setMsg(""), 5000);
             }
             console.log("data.messagge", data.message);
         },
@@ -50,6 +57,6 @@ export const useDaylight = () => {
         removeAllCities,
         isLoading: daylightMutation.isPending,
         error: daylightMutation.error,
-        dataMsg,
+        msg,
     };
 };
