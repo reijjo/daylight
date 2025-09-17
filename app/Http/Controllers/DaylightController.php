@@ -19,6 +19,18 @@ class DaylightController extends Controller
 				], 400);
 			}
 
+			if (!$name) {
+				return response()->json([
+					'error' => 'Name is required.'
+				], 400);
+			}
+
+			if (!$id) {
+				return response()->json([
+					'error' => 'Place ID is required.'
+				], 400);
+			}
+
 			$date = strtotime('today');
 			$sunInfo = date_sun_info($date, (float) $lat, (float) $lon);
 
@@ -30,8 +42,6 @@ class DaylightController extends Controller
 			$hours = floor($daylength / 3600);
       $minutes = floor(($daylength % 3600) / 60);
       $seconds = $daylength % 60;
-
-
 
 			return response()->json([
 				'id' => $id,
