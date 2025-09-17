@@ -16,12 +16,18 @@ interface CitylistItemProps {
 
 const CityListItem = ({ city, removeCity }: CitylistItemProps) => {
     return (
-        <div className="flex flex-col items-center gap-4 border border-white/50 rounded-xl p-4 bg-linear-to-br from-white/20 via-transparent to-black/20 backdrop-blur-md shadow-lg shadow-white/10 relative">
+        <div className="flex flex-col items-center gap-4 rounded-xl border border-white/30 bg-black/10 p-4 backdrop-blur-md shadow-xl shadow-white/10 relative">
             <h3 className="uppercase">{city.city}</h3>
             <p>Sunrise {city.sunrise}</p>
             <p>Sunset {city.sunset}</p>
             <p>Daylight {city.daylength}</p>
-            <button onClick={() => removeCity(city.id)}>Remove</button>
+            <button
+                type="button"
+                aria-label={`Remove ${city.city}`}
+                onClick={() => removeCity(city.id)}
+            >
+                Remove
+            </button>
         </div>
     );
 };
