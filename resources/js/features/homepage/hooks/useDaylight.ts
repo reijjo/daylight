@@ -52,6 +52,7 @@ export const useDaylight = () => {
 
     return {
         savedCities,
+        setSavedCities,
         daylightMutation,
         removeCity,
         removeAllCities,

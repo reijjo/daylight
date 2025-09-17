@@ -4,10 +4,13 @@ import { useDaylight } from "../../features/homepage/hooks/useDaylight";
 import { FoundCity } from "../../utils/types";
 import { Hero } from "./hero/Hero";
 import CityList from "../../features/homepage/components/CityList";
+import { useExampleCity } from "../../features/homepage/hooks/useExampleCity";
+import { Suspense, useEffect } from "react";
 
 const HomePage = () => {
     const {
         savedCities,
+        setSavedCities,
         daylightMutation,
         removeCity,
         removeAllCities,
@@ -20,8 +23,6 @@ const HomePage = () => {
         daylightMutation.mutate(city);
     };
 
-    console.log("saved cities", savedCities);
-
     return (
         <Layout title="Daylight">
             <div className="h-full w-full flex grow flex-col items-center pt-16 gap-4">
@@ -31,7 +32,20 @@ const HomePage = () => {
                     isAddingCity={isLoading}
                     msg={msg}
                 />
-                <CityList savedCities={savedCities} />
+                <Suspense
+                    fallback={
+                        <div className="w-full border-amber-200 border-8">
+                            Loading cities...
+                        </div>
+                    }
+                >
+                    <CityList
+                        savedCities={savedCities}
+                        setSavedCities={setSavedCities}
+                        removeCity={removeCity}
+                        removeAllCities={removeAllCities}
+                    />
+                </Suspense>
             </div>
         </Layout>
     );
