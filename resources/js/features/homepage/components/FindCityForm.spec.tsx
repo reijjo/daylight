@@ -42,6 +42,7 @@ describe("FindCityForm", () => {
             <FindCityForm
                 handleCitySelect={mockHandleCitySelect}
                 isAddingCity={mockIsAddingCity}
+                dataMsg={null}
             />
         );
 
@@ -65,6 +66,7 @@ describe("FindCityForm", () => {
                 <FindCityForm
                     handleCitySelect={mockHandleCitySelect}
                     isAddingCity={mockIsAddingCity}
+                    dataMsg={null}
                 />
             );
 
@@ -83,6 +85,7 @@ describe("FindCityForm", () => {
                 <FindCityForm
                     handleCitySelect={mockHandleCitySelect}
                     isAddingCity={mockIsAddingCity}
+                    dataMsg={null}
                 />
             );
 
@@ -105,6 +108,7 @@ describe("FindCityForm", () => {
                 <FindCityForm
                     handleCitySelect={mockHandleCitySelect}
                     isAddingCity={mockIsAddingCityTrue}
+                    dataMsg={null}
                 />
             );
 

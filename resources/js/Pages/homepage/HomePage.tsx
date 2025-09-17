@@ -37,12 +37,9 @@ const HomePage = () => {
                 <FindCityForm
                     handleCitySelect={handleCitySelect}
                     isAddingCity={isLoading}
-                />
-                <CityList
-                    savedCities={savedCities}
-                    msg={msg}
                     dataMsg={dataMsg}
                 />
+                <CityList savedCities={savedCities} msg={msg} />
             </div>
         </Layout>
     );
