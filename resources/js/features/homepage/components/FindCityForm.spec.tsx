@@ -4,9 +4,6 @@ import { beforeEach, describe, expect, test, vi } from "vitest";
 import { screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
-import { useDaylight } from "../hooks/useDaylight";
-import { use } from "react";
-import { DaylightData } from "../../../utils/types";
 
 vi.mock("../api/daylightApi", async () => {
     const actual = await vi.importActual("../api/daylightApi");
@@ -16,21 +13,21 @@ vi.mock("../api/daylightApi", async () => {
     };
 });
 
-const useDaylightMock = vi.fn(() => {
-    return {
-        savedCities: [],
-        daylightMutation: {
-            isLoading: true,
-            mutate: vi.fn(),
-            data: null,
-            error: null,
-            isPending: false,
-        },
-        removeCity: vi.fn(),
-        removeAllCities: vi.fn(),
-        error: null,
-    };
-});
+// const useDaylightMock = vi.fn(() => {
+//     return {
+//         savedCities: [],
+//         daylightMutation: {
+//             isLoading: true,
+//             mutate: vi.fn(),
+//             data: null,
+//             error: null,
+//             isPending: false,
+//         },
+//         removeCity: vi.fn(),
+//         removeAllCities: vi.fn(),
+//         error: null,
+//     };
+// });
 
 const mockHandleCitySelect = vi.fn();
 const mockIsAddingCity = false;

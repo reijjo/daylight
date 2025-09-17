@@ -2,9 +2,11 @@ import { useMutation } from "@tanstack/react-query";
 import { DaylightData, FoundCity } from "../../../utils/types";
 import { getDaylight } from "../api/daylightApi";
 import { useState } from "react";
+import { set } from "react-hook-form";
 
 export const useDaylight = () => {
     const [savedCities, setSavedCities] = useState<DaylightData[]>([]);
+    const [dataMsg, setDataMsg] = useState<string | null>(null);
 
     const daylightMutation = useMutation({
         mutationFn: (city: FoundCity) => getDaylight(city),
@@ -22,6 +24,12 @@ export const useDaylight = () => {
                     return [...prev, newCity];
                 }
             });
+
+            if (data.message) {
+                setDataMsg(data.message);
+                setTimeout(() => setDataMsg(null), 5000);
+            }
+            console.log("data.messagge", data.message);
         },
         onError: (error: unknown) => {
             console.log("Daylight error", error);
@@ -43,5 +51,6 @@ export const useDaylight = () => {
         removeAllCities,
         isLoading: daylightMutation.isPending,
         error: daylightMutation.error,
+        dataMsg,
     };
 };

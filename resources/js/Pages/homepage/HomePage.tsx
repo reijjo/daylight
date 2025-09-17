@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Layout } from "../../components/shared/Layout";
 import { Message } from "../../components/ui/Message";
 import { FindCityForm } from "../../features/homepage/components/FindCityForm";
@@ -14,6 +14,7 @@ const HomePage = () => {
         removeAllCities,
         isLoading,
         error,
+        dataMsg,
     } = useDaylight();
     const [msg, setMsg] = useState<string | null>(null);
 
@@ -43,6 +44,8 @@ const HomePage = () => {
                     {savedCities.length >= 6 && msg && (
                         <Message message={msg as string} type="info" />
                     )}
+
+                    {dataMsg && <Message message={dataMsg} type="success" />}
                 </div>
             </div>
         </Layout>
