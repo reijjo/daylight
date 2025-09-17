@@ -1,0 +1,27 @@
+import { useSuspenseQuery } from "@tanstack/react-query";
+import { getCities, getDaylight } from "../api/daylightApi";
+import { FoundCity } from "../../../utils/types";
+
+export const useExampleCity = () => {
+    const { data, isError, error } = useSuspenseQuery({
+        queryKey: ["example"],
+        queryFn: () => getCities("helsinki"),
+    });
+
+    const exampleCity = data?.[0] as FoundCity;
+
+    const {
+        data: exampleDaylight,
+        error: exampleDaylightError,
+        isError: isExampleDaylightError,
+    } = useSuspenseQuery({
+        queryKey: ["savedCities"],
+        queryFn: () => getDaylight(exampleCity),
+    });
+
+    return {
+        exampleDaylight,
+        exampleDaylightError,
+        isExampleDaylightError,
+    };
+};
