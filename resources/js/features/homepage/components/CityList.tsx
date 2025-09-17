@@ -17,11 +17,11 @@ interface CitylistItemProps {
 const CityListItem = ({ city, removeCity }: CitylistItemProps) => {
     return (
         <div className="flex flex-col items-center gap-4 border border-white/50 rounded-xl p-4 bg-linear-to-br from-white/20 via-transparent to-black/20 backdrop-blur-md shadow-lg shadow-white/10 relative">
-            <h3 className="uppercase">{city?.city}</h3>
-            <p>Sunrise {city?.sunrise}</p>
-            <p>Sunset {city?.sunset}</p>
-            <p>Daylight {city?.daylength}</p>
-            <button onClick={() => removeCity(city?.id)}>Remove</button>
+            <h3 className="uppercase">{city.city}</h3>
+            <p>Sunrise {city.sunrise}</p>
+            <p>Sunset {city.sunset}</p>
+            <p>Daylight {city.daylength}</p>
+            <button onClick={() => removeCity(city.id)}>Remove</button>
         </div>
     );
 };
@@ -30,7 +30,6 @@ const CityList = ({
     savedCities,
     setSavedCities,
     removeCity,
-    removeAllCities,
 }: CityListProps) => {
     const { exampleDaylight } = useExampleCity();
 
@@ -44,7 +43,7 @@ const CityList = ({
         <div className="flex flex-col items-center gap-4">
             {savedCities.map((city) => (
                 <CityListItem
-                    key={city?.id}
+                    key={city.id}
                     city={city}
                     removeCity={removeCity}
                 />
