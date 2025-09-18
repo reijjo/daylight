@@ -61,24 +61,25 @@ class DaylightController extends Controller
 			$year = date('Y');
 			$yearData = [];
 
-			for ($day = 1; $day <= 365; $day++) {
-            $date = strtotime("$year-01-01 +".($day - 1)." days");
-            $sunInfo = date_sun_info($date, (float) $lat, (float) $lon);
+			$daysInYear = date('L', strtotime($year . '-01-01')) ? 366 : 365;
 
-            if ($sunInfo['sunrise'] === false) {
-                $dayMinutes = 0;
-            } elseif ($sunInfo['sunrise'] === true) {
-                $dayMinutes = 24 * 60;
-            } else {
-                $dayMinutes = ($sunInfo['sunset'] - $sunInfo['sunrise']) / 60;
-            }
+			for ($day = 1; $day <= $daysInYear; $day++) {
+        $date = strtotime("$year-01-01 +".($day - 1)." days");
+        $sunInfo = date_sun_info($date, (float) $lat, (float) $lon);
 
-            $yearData[] = [
-                'day' => $day,
-                'date' => date('Y-m-d', $date),
-                'daylength_minutes' => $dayMinutes,
-            ];
-        }
+        if ($sunInfo['sunrise'] === false) {
+            $dayMinutes = 0;
+        } elseif ($sunInfo['sunrise'] === true) {
+            $dayMinutes = 24 * 60;
+        } else {
+            $dayMinutes = ($sunInfo['sunset'] - $sunInfo['sunrise']) / 60;
+
+        $yearData[] = [
+            'day' => $day,
+            'date' => date('Y-m-d', $date),
+            'daylength_minutes' => $dayMinutes,
+        ];
+      }
 
 			return response()->json([
 				'id' => $id,
@@ -95,4 +96,5 @@ class DaylightController extends Controller
 				],
 			], 200);
 		}
+	}
 }
