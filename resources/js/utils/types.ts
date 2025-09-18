@@ -6,15 +6,13 @@ export interface FoundCity {
     lon: string;
 }
 
-interface DaylightDataYear {
+export interface DaylightDataYear {
     year: number;
-    data: [
-        {
-            day: number;
-            date: string;
-            daylength_minutes: number;
-        }
-    ];
+    data: {
+        day: number;
+        date: string;
+        daylength_minutes: number;
+    }[];
 }
 
 export interface DaylightData {

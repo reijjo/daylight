@@ -14,30 +14,29 @@ export const useDaylight = () => {
         onSuccess: (data) => {
             const newCity: DaylightData = data;
 
-            if (savedCities.length >= MAX_CITIES) {
-                setMsg("Max 6 cities");
-                setTimeout(() => setMsg(""), 5000);
-                return;
-            }
+            // if (savedCities.length >= MAX_CITIES) {
+            //     setMsg(`Maximum ${MAX_CITIES} cities`);
+            //     setTimeout(() => setMsg(""), 5000);
+            //     return;
+            // }
 
             setSavedCities((prev) => {
+                if (prev.length >= MAX_CITIES) {
+                    setMsg(`Maximum ${MAX_CITIES} cities`);
+                    setTimeout(() => setMsg(""), 5000);
+                    return prev;
+                }
                 const exists =
-                    prev.some((city) => city.id === newCity.id) ||
+                    prev.some((c) => c.id === newCity.id) ||
                     prev.some(
-                        (city) =>
-                            city.lat === newCity.lat && city.lon === newCity.lon
+                        (c) => c.lat === newCity.lat && c.lon === newCity.lon
                     );
-
                 if (exists) {
                     setMsg("City already added.");
                     setTimeout(() => setMsg(""), 5000);
-
-                    return prev.map((city) =>
-                        city.id === newCity.id ? newCity : city
-                    );
-                } else {
-                    return [...prev, newCity];
+                    return prev.map((c) => (c.id === newCity.id ? newCity : c));
                 }
+                return [...prev, newCity];
             });
 
             if (data.message) {
