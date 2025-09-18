@@ -1,5 +1,6 @@
 import { DaylightData } from "../../../../utils/types";
 import close from "../../../../../assets/images/close.png";
+import { Suspense } from "react";
 
 interface CitylistItemProps {
     city: DaylightData;
@@ -17,12 +18,12 @@ export const CityListItem = ({ city, removeCity }: CitylistItemProps) => {
             <div className="flex items-center gap-4 text-sm">
                 <div>
                     <p>{city.sunrise}</p>
-                    <p className="text-end">From</p>
+                    <p className="text-end">Sunrise</p>
                 </div>
                 <p>-</p>
                 <div>
                     <p>{city.sunset}</p>
-                    <p>To</p>
+                    <p>Sunset</p>
                 </div>
             </div>
             <button

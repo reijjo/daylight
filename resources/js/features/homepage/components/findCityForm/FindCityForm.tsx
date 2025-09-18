@@ -78,14 +78,16 @@ export const FindCityForm = ({
             {searchMutation.isPending && (
                 <Message message="Searching..." type="info" />
             )}
-            {isAddingCity && <Message message="Adding city..." type="info" />}
+            {isAddingCity && (
+                <Message message={msg ?? "Adding city..."} type="info" />
+            )}
             {searchMutation.data?.length === 0 && searchMutation.isSuccess && (
                 <Message message="No cities found." type="error" />
             )}
             {errors.city?.message && (
                 <Message type="error" message={errors.city?.message} />
             )}
-            {msg && <Message message={msg} type="info" />}
+            {!isAddingCity && msg && <Message message={msg} type="info" />}
 
             <CitySuggestions
                 suggestions={searchMutation?.data || null}

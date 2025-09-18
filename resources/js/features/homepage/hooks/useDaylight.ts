@@ -10,6 +10,7 @@ export const useDaylight = () => {
 
     const daylightMutation = useMutation({
         mutationFn: (city: FoundCity) => getDaylight(city),
+        onMutate: (city: FoundCity) => setMsg(`Adding ${city.name}...`),
         onSuccess: (data) => {
             const newCity: DaylightData = data;
 

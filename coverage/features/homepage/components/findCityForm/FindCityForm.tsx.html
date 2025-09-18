@@ -3,15 +3,15 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for features/homepage/components/FindCityForm.tsx</title>
+    <title>Code coverage report for features/homepage/components/findCityForm/FindCityForm.tsx</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../../../prettify.css" />
-    <link rel="stylesheet" href="../../../base.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.png" />
+    <link rel="stylesheet" href="../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(../../../sort-arrow-sprite.png);
+            background-image: url(../../../../sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -19,20 +19,20 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../../index.html">All files</a> / <a href="index.html">features/homepage/components</a> FindCityForm.tsx</h1>
+        <h1><a href="../../../../index.html">All files</a> / <a href="index.html">features/homepage/components/findCityForm</a> FindCityForm.tsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>72/72</span>
+                <span class='fraction'>73/73</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>14/14</span>
+                <span class='fraction'>15/15</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>72/72</span>
+                <span class='fraction'>73/73</span>
             </div>
         
             
@@ -159,7 +159,9 @@
 <a name='L94'></a><a href='#L94'>94</a>
 <a name='L95'></a><a href='#L95'>95</a>
 <a name='L96'></a><a href='#L96'>96</a>
-<a name='L97'></a><a href='#L97'>97</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L97'></a><a href='#L97'>97</a>
+<a name='L98'></a><a href='#L98'>98</a>
+<a name='L99'></a><a href='#L99'>99</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -240,6 +242,8 @@
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">25x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">25x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -255,12 +259,12 @@
 <span class="cline-any cline-yes">25x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">25x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Input } from "../../../components/ui/Input";
-import { FoundCity } from "../../../utils/types";
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Input } from "../../../../components/ui/Input";
+import { FoundCity } from "../../../../utils/types";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { Message } from "../../../../components/ui/Message";
+import { useCitySearch } from "../../hooks/useCitySearch";
 import { CitySuggestions } from "./CitySuggestions";
-import { Message } from "../../../components/ui/Message";
-import { useCitySearch } from "../hooks/useCitySearch";
 &nbsp;
 type FormValues = {
     city: string;
@@ -335,14 +339,16 @@ export const FindCityForm = ({
             {searchMutation.isPending &amp;&amp; (
                 &lt;Message message="Searching..." type="info" /&gt;
             )}
-            {isAddingCity &amp;&amp; &lt;Message message="Adding city..." type="info" /&gt;}
+            {isAddingCity &amp;&amp; (
+                &lt;Message message={msg ?? "Adding city..."} type="info" /&gt;
+            )}
             {searchMutation.data?.length === 0 &amp;&amp; searchMutation.isSuccess &amp;&amp; (
                 &lt;Message message="No cities found." type="error" /&gt;
             )}
             {errors.city?.message &amp;&amp; (
                 &lt;Message type="error" message={errors.city?.message} /&gt;
             )}
-            {msg &amp;&amp; &lt;Message message={msg} type="info" /&gt;}
+            {!isAddingCity &amp;&amp; msg &amp;&amp; &lt;Message message={msg} type="info" /&gt;}
 &nbsp;
             &lt;CitySuggestions
                 suggestions={searchMutation?.data || null}
@@ -358,16 +364,16 @@ export const FindCityForm = ({
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-09-18T05:43:30.526Z
+                at 2025-09-18T09:27:00.685Z
             </div>
-        <script src="../../../prettify.js"></script>
+        <script src="../../../../prettify.js"></script>
         <script>
             window.onload = function () {
                 prettyPrint();
             };
         </script>
-        <script src="../../../sorter.js"></script>
-        <script src="../../../block-navigation.js"></script>
+        <script src="../../../../sorter.js"></script>
+        <script src="../../../../block-navigation.js"></script>
     </body>
 </html>
     

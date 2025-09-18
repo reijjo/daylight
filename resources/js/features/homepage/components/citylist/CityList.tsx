@@ -1,6 +1,6 @@
 import { DaylightData } from "../../../../utils/types";
 import { useExampleCity } from "../../hooks/useExampleCity";
-import { useEffect } from "react";
+import { Suspense, useEffect } from "react";
 import { CityListItem } from "./CityListItem";
 
 interface CityListProps {
