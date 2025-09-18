@@ -7,6 +7,7 @@ interface CitylistItemProps {
 }
 
 export const CityListItem = ({ city, removeCity }: CitylistItemProps) => {
+    console.log("city", city);
     return (
         <div className="flex flex-col items-center gap-2 rounded-xl border border-white/30 bg-black/10 px-8 py-4 backdrop-blur-md shadow-xl shadow-white/10 relative">
             <div className="text-center">
