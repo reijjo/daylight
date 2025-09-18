@@ -2,6 +2,7 @@ import { DaylightData } from "../../../../utils/types";
 import { useExampleCity } from "../../hooks/useExampleCity";
 import { useEffect } from "react";
 import { CityListItem } from "./CityListItem";
+import { Charts } from "./Charts";
 
 interface CityListProps {
     savedCities: DaylightData[];
@@ -25,6 +26,7 @@ const CityList = ({
 
     return (
         <div className="flex items-center justify-center flex-wrap gap-4 w-9/10">
+            <Charts savedCities={savedCities} />
             {savedCities.map((city) => (
                 <CityListItem
                     key={city.id}

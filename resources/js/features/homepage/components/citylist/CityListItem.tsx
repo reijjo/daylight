@@ -7,14 +7,13 @@ interface CitylistItemProps {
 }
 
 export const CityListItem = ({ city, removeCity }: CitylistItemProps) => {
-    console.log("city", city);
     return (
-        <div className="flex flex-col items-center gap-2 rounded-xl border border-white/30 bg-black/10 px-8 py-4 backdrop-blur-md shadow-xl shadow-white/10 relative">
+        <div className="flex flex-col items-center gap-2 rounded-xl border border-white/30 bg-black/10 px-8 py-4 backdrop-blur-md shadow-xl shadow-white/10 relative text-sm">
             <div className="text-center">
                 <p className="capitalize">Daylight today</p>
                 <p>{city.daylength}</p>
             </div>
-            <h3 className="uppercase text-3xl">{city.city}</h3>
+            <h3 className="uppercase text-xl">{city.city}</h3>
             <div className="flex items-center gap-4 text-sm text-end">
                 <div>
                     <p>{city.sunrise}</p>

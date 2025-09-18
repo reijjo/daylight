@@ -6,7 +6,7 @@ export interface FoundCity {
     lon: string;
 }
 
-interface DaylightDataYear {
+export interface DaylightDataYear {
     year: number;
     data: [
         {

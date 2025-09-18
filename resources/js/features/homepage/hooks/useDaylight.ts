@@ -15,7 +15,7 @@ export const useDaylight = () => {
             const newCity: DaylightData = data;
 
             if (savedCities.length >= MAX_CITIES) {
-                setMsg("Max 6 cities");
+                setMsg(`Maximum ${MAX_CITIES} cities`);
                 setTimeout(() => setMsg(""), 5000);
                 return;
             }

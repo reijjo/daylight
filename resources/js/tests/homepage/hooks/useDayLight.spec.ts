@@ -9,6 +9,7 @@ vi.mock("../../../features/homepage/api/daylightApi", () => ({
 }));
 
 import { getDaylight } from "../../../features/homepage/api/daylightApi";
+import { MAX_CITIES } from "../../../utils/constants";
 
 const mockGetDaylight = vi.mocked(getDaylight);
 const mockDaylightData = {
@@ -64,7 +65,7 @@ describe("useDayLight", () => {
             wrapper: createWrapper(),
         });
 
-        for (let i = 0; i < 6; i++) {
+        for (let i = 0; i < 2; i++) {
             result.current.daylightMutation.mutate({
                 ...mockHelsinkiCity,
                 place_id: i,
@@ -76,7 +77,7 @@ describe("useDayLight", () => {
 
             await waitFor(() => {
                 expect(result.current.savedCities.length).toBeLessThanOrEqual(
-                    6
+                    2
                 );
             });
         }
@@ -92,8 +93,8 @@ describe("useDayLight", () => {
         });
 
         await waitFor(() => {
-            expect(result.current.msg).toBe("Max 6 cities");
-            expect(result.current.savedCities.length).toBe(6);
+            expect(result.current.msg).toBe(`Maximum ${MAX_CITIES} cities`);
+            expect(result.current.savedCities.length).toBe(2);
         });
     });
 
