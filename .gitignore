@@ -31,3 +31,4 @@ auth.json
 
 bun.lock
 .DS_Store
+/coverage
