@@ -29,7 +29,7 @@ export const CitySuggestions = ({
     return (
         <>
             {suggestions && (
-                <div className="w-full bg-white/80 text-black rounded-2xl overflow-hidden shadow-lg shadow-white/20 mb-4">
+                <div className="w-full bg-white/90 text-black rounded-2xl overflow-hidden shadow-lg shadow-white/20 mb-4 absolute top-14 left-0 z-10">
                     {suggestions?.map((found) => (
                         <button
                             type="button"

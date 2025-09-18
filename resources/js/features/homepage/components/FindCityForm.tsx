@@ -45,10 +45,10 @@ export const FindCityForm = ({
     };
 
     return (
-        <div className="max-w-sm w-8/10 sm:max-w-md flex flex-col gap-2">
+        <div className="max-w-sm w-8/10 sm:max-w-md flex flex-col gap-2 relative">
             <form
                 onSubmit={handleSubmit(onSubmit)}
-                className="w-full flex flex-col gap-2 sm:flex-row "
+                className="w-full flex flex-col gap-2 sm:flex-row"
             >
                 <div className="w-full flex flex-col gap-1">
                     <Input
@@ -85,7 +85,7 @@ export const FindCityForm = ({
             {errors.city?.message && (
                 <Message type="error" message={errors.city?.message} />
             )}
-            {msg && <Message message={msg} type="success" />}
+            {msg && <Message message={msg} type="info" />}
 
             <CitySuggestions
                 suggestions={searchMutation?.data || null}

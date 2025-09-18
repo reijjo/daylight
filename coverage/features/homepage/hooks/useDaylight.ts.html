@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">46.15% </span>
+                <span class="strong">42.37% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>24/52</span>
+                <span class='fraction'>25/59</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">46.15% </span>
+                <span class="strong">42.37% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>24/52</span>
+                <span class='fraction'>25/59</span>
             </div>
         
             
@@ -125,7 +125,15 @@
 <a name='L60'></a><a href='#L60'>60</a>
 <a name='L61'></a><a href='#L61'>61</a>
 <a name='L62'></a><a href='#L62'>62</a>
-<a name='L63'></a><a href='#L63'>63</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -148,6 +156,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -156,9 +173,7 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -177,6 +192,7 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -209,9 +225,17 @@ export const useDaylight = () =&gt; {
 <span class="cstat-no" title="statement not covered" >            }</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >            setSavedCities((prev) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >                const exists = prev.some((city) =&gt; city.id === newCity.id);</span>
+<span class="cstat-no" title="statement not covered" >                const exists =</span>
+<span class="cstat-no" title="statement not covered" >                    prev.some((city) =&gt; city.id === newCity.id) ||</span>
+<span class="cstat-no" title="statement not covered" >                    prev.some(</span>
+<span class="cstat-no" title="statement not covered" >                        (city) =&gt;</span>
+<span class="cstat-no" title="statement not covered" >                            city.lat === newCity.lat &amp;&amp; city.lon === newCity.lon</span>
+<span class="cstat-no" title="statement not covered" >                    );</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >                if (exists) {</span>
+<span class="cstat-no" title="statement not covered" >                    setMsg("City already added.");</span>
+<span class="cstat-no" title="statement not covered" >                    setTimeout(() =&gt; setMsg(""), 5000);</span>
+&nbsp;
 <span class="cstat-no" title="statement not covered" >                    return prev.map((city) =&gt;</span>
 <span class="cstat-no" title="statement not covered" >                        city.id === newCity.id ? newCity : city</span>
 <span class="cstat-no" title="statement not covered" >                    );</span>
@@ -224,7 +248,6 @@ export const useDaylight = () =&gt; {
 <span class="cstat-no" title="statement not covered" >                setMsg(data.message);</span>
 <span class="cstat-no" title="statement not covered" >                setTimeout(() =&gt; setMsg(""), 5000);</span>
 <span class="cstat-no" title="statement not covered" >            }</span>
-<span class="cstat-no" title="statement not covered" >            console.log("data.messagge", data.message);</span>
 <span class="cstat-no" title="statement not covered" >        },</span>
         onError: <span class="fstat-no" title="function not covered" >(error: unknown) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >            console.log("Daylight error", error);</span>
@@ -241,6 +264,7 @@ export const useDaylight = () =&gt; {
 &nbsp;
     return {
         savedCities,
+        setSavedCities,
         daylightMutation,
         removeCity,
         removeAllCities,
@@ -256,7 +280,7 @@ export const useDaylight = () =&gt; {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-09-17T14:38:45.227Z
+                at 2025-09-18T05:43:30.526Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>
