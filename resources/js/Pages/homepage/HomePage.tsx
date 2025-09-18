@@ -35,7 +35,11 @@ const HomePage = () => {
                     msg={msg}
                 />
                 <Suspense
-                    fallback={<div className="w-max">Loading cities...</div>}
+                    fallback={
+                        <div role="status" aria-live="polite" className="w-max">
+                            Loading cities...
+                        </div>
+                    }
                 >
                     <CityList
                         savedCities={savedCities}
