@@ -36,9 +36,7 @@ const HomePage = () => {
                 />
                 <Suspense
                     fallback={
-                        <div role="status" aria-live="polite" className="w-max">
-                            Loading cities...
-                        </div>
+                        <output className="w-max">Loading cities...</output>
                     }
                 >
                     <CityList
