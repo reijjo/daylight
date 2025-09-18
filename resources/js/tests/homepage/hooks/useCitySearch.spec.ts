@@ -18,7 +18,7 @@ beforeEach(() => {
 describe("useCitySearch", () => {
     test("should initialize with correct default state", () => {
         const { result } = renderHook(() => useCitySearch(), {
-            wrapper: createWrapper(), // Your QueryClient wrapper
+            wrapper: createWrapper(),
         });
 
         expect(result.current.searchMutation.isIdle).toBe(true);

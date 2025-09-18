@@ -5,9 +5,6 @@ import { getCities } from "../api/daylightApi";
 export const useCitySearch = () => {
     const searchMutation = useMutation({
         mutationFn: (city: string) => getCities(city),
-        // onSuccess: (data) => {
-        //     console.log("Search results", data);
-        // },
         onError: (error: unknown) => {
             console.log("Search error", error);
         },
