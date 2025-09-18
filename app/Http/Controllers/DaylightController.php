@@ -46,9 +46,9 @@ class DaylightController extends Controller
 			return response()->json([
 				'id' => $id,
 				'city' => $name,
-				'sunrise' => date('H:i:s', $sunrise),
-				'sunset' => date('H:i:s', $sunset),
-				'daylength' => "{$hours}h {$minutes}m {$seconds}s",
+				'sunrise' => date('H:i', $sunrise),
+				'sunset' => date('H:i', $sunset),
+				'daylength' => "{$hours}h {$minutes}m",
 				'message' => "{$name} added!",
 				'lat' => $lat,
 				'lon' => $lon

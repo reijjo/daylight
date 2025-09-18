@@ -1,6 +1,5 @@
 import { DaylightData } from "../../../../utils/types";
 import close from "../../../../../assets/images/close.png";
-import { Suspense } from "react";
 
 interface CitylistItemProps {
     city: DaylightData;
@@ -11,17 +10,17 @@ export const CityListItem = ({ city, removeCity }: CitylistItemProps) => {
     return (
         <div className="flex flex-col items-center gap-2 rounded-xl border border-white/30 bg-black/10 px-8 py-4 backdrop-blur-md shadow-xl shadow-white/10 relative">
             <div className="text-center">
-                <p>Daylight today</p>
+                <p className="capitalize">Daylight today</p>
                 <p>{city.daylength}</p>
             </div>
             <h3 className="uppercase text-3xl">{city.city}</h3>
-            <div className="flex items-center gap-4 text-sm">
+            <div className="flex items-center gap-4 text-sm text-end">
                 <div>
                     <p>{city.sunrise}</p>
-                    <p className="text-end">Sunrise</p>
+                    <p>Sunrise</p>
                 </div>
                 <p>-</p>
-                <div>
+                <div className="text-start">
                     <p>{city.sunset}</p>
                     <p>Sunset</p>
                 </div>
