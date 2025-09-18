@@ -35,7 +35,8 @@ export const CityListItem = ({ city, removeCity }: CitylistItemProps) => {
                     src={close}
                     title="close"
                     alt="close"
-                    className="color-white h-4 w-4"
+                    className="h-4 w-4"
+                    aria-hidden
                 />
             </button>
         </div>

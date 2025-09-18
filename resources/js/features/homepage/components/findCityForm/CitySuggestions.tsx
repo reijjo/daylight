@@ -1,4 +1,4 @@
-import { FoundCity } from "../../../utils/types";
+import { FoundCity } from "../../../../utils/types";
 
 interface CitySuggestionsProps {
     suggestions: FoundCity[] | null;
@@ -29,7 +29,10 @@ export const CitySuggestions = ({
     return (
         <>
             {suggestions && (
-                <div className="w-full bg-white/90 text-black rounded-2xl overflow-hidden shadow-lg shadow-white/20 mb-4 absolute top-14 left-0 z-10">
+                <div
+                    className="w-full bg-white/90 text-black rounded-2xl overflow-hidden shadow-lg shadow-white/20 mb-4 absolute top-14 left-0 z-10"
+                    role="listbox"
+                >
                     {suggestions?.map((found) => (
                         <button
                             type="button"
