@@ -13,4 +13,6 @@ export interface DaylightData {
     sunset: string;
     daylength: string;
     message?: string;
+    lat?: string;
+    lon?: string;
 }

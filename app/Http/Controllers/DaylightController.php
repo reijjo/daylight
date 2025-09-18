@@ -49,7 +49,9 @@ class DaylightController extends Controller
 				'sunrise' => date('H:i:s', $sunrise),
 				'sunset' => date('H:i:s', $sunset),
 				'daylength' => "{$hours}h {$minutes}m {$seconds}s",
-				'message' => "{$name} added!"
+				'message' => "{$name} added!",
+				'lat' => $lat,
+				'lon' => $lon
 			], 200);
 		}
 }

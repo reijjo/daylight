@@ -20,9 +20,17 @@ export const useDaylight = () => {
             }
 
             setSavedCities((prev) => {
-                const exists = prev.some((city) => city.id === newCity.id);
+                const exists =
+                    prev.some((city) => city.id === newCity.id) ||
+                    prev.some(
+                        (city) =>
+                            city.lat === newCity.lat && city.lon === newCity.lon
+                    );
 
                 if (exists) {
+                    setMsg("City already added.");
+                    setTimeout(() => setMsg(""), 5000);
+
                     return prev.map((city) =>
                         city.id === newCity.id ? newCity : city
                     );
@@ -35,7 +43,6 @@ export const useDaylight = () => {
                 setMsg(data.message);
                 setTimeout(() => setMsg(""), 5000);
             }
-            console.log("data.messagge", data.message);
         },
         onError: (error: unknown) => {
             console.log("Daylight error", error);

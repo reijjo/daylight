@@ -1,11 +1,13 @@
 import { Layout } from "../../components/shared/Layout";
-import { FindCityForm } from "../../features/homepage/components/FindCityForm";
+import { FindCityForm } from "../../features/homepage/components/findCityForm/FindCityForm";
 import { useDaylight } from "../../features/homepage/hooks/useDaylight";
 import { FoundCity } from "../../utils/types";
 import { Hero } from "./hero/Hero";
-import CityList from "../../features/homepage/components/CityList";
-import { useExampleCity } from "../../features/homepage/hooks/useExampleCity";
-import { Suspense, useEffect } from "react";
+import { lazy, Suspense } from "react";
+
+const CityList = lazy(
+    () => import("../../features/homepage/components/citylist/CityList")
+);
 
 const HomePage = () => {
     const {
@@ -25,7 +27,7 @@ const HomePage = () => {
 
     return (
         <Layout title="Daylight">
-            <div className="h-full w-full flex grow flex-col items-center pt-16 gap-4">
+            <div className="h-full w-full flex grow flex-col items-center pt-16 pb-8 gap-4">
                 <Hero />
                 <FindCityForm
                     handleCitySelect={handleCitySelect}
@@ -34,9 +36,7 @@ const HomePage = () => {
                 />
                 <Suspense
                     fallback={
-                        <div className="w-full border-amber-200 border-8">
-                            Loading cities...
-                        </div>
+                        <output className="w-max">Loading cities...</output>
                     }
                 >
                     <CityList
