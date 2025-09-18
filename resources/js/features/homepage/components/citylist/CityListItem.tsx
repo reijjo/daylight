@@ -36,7 +36,7 @@ export const CityListItem = ({ city, removeCity }: CitylistItemProps) => {
                     title="close"
                     alt="close"
                     className="h-4 w-4"
-                    aria-hidden
+                    aria-hidden="true"
                 />
             </button>
         </div>

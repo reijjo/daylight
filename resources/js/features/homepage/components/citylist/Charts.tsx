@@ -17,6 +17,8 @@ export const Charts = ({ savedCities }: ChartsProps) => {
             <SunlightBar data={savedCities} step={step} />
             <div className="flex justify-end gap-4">
                 <button
+                    type="button"
+                    aria-pressed={step !== 1}
                     onClick={() => setStep(step === 1 ? 7 : 1)}
                     className="border border-white/40 px-4 py-2 rounded-4xl h-10 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed text-sm text-center hover:border-white hover:bg-black/50 active:scale-90 transition-all duration-150 ease-in"
                 >

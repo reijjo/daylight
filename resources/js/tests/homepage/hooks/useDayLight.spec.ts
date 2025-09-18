@@ -17,7 +17,7 @@ const mockDaylightData = {
     city: "Helsinki",
     sunrise: "06:30",
     sunset: "18:45",
-    dayLength: "12h 15m 2s",
+    daylength: "12h 15m 2s",
     message: "Helsinki added!",
     lat: "60.1639",
     lon: "24.9384",
@@ -65,7 +65,7 @@ describe("useDayLight", () => {
             wrapper: createWrapper(),
         });
 
-        for (let i = 0; i < 2; i++) {
+        for (let i = 0; i < MAX_CITIES; i++) {
             result.current.daylightMutation.mutate({
                 ...mockHelsinkiCity,
                 place_id: i,
@@ -77,12 +77,12 @@ describe("useDayLight", () => {
 
             await waitFor(() => {
                 expect(result.current.savedCities.length).toBeLessThanOrEqual(
-                    2
+                    MAX_CITIES
                 );
             });
         }
 
-        // Try adding a 7th city
+        // Try adding more than MAX_CITIES
         result.current.daylightMutation.mutate({
             ...mockHelsinkiCity,
             place_id: 999,
@@ -94,7 +94,7 @@ describe("useDayLight", () => {
 
         await waitFor(() => {
             expect(result.current.msg).toBe(`Maximum ${MAX_CITIES} cities`);
-            expect(result.current.savedCities.length).toBe(2);
+            expect(result.current.savedCities.length).toBe(MAX_CITIES);
         });
     });
 

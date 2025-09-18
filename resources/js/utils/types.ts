@@ -8,13 +8,11 @@ export interface FoundCity {
 
 export interface DaylightDataYear {
     year: number;
-    data: [
-        {
-            day: number;
-            date: string;
-            daylength_minutes: number;
-        }
-    ];
+    data: {
+        day: number;
+        date: string;
+        daylength_minutes: number;
+    }[];
 }
 
 export interface DaylightData {

@@ -26,7 +26,7 @@ const CityList = ({
 
     return (
         <div className="flex items-center justify-center flex-wrap gap-4 w-9/10">
-            <Charts savedCities={savedCities} />
+            {savedCities.length > 0 && <Charts savedCities={savedCities} />}
             {savedCities.map((city) => (
                 <CityListItem
                     key={city.id}

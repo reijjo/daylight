@@ -58,7 +58,7 @@ class DaylightController extends Controller
         }
 
         // Year
-        $year = date('Y');
+        $year = (int) date('Y');
         $yearData = [];
 
         $daysInYear = date('L', strtotime($year . '-01-01')) ? 366 : 365;

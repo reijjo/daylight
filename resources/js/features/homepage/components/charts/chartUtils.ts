@@ -9,7 +9,8 @@ export const transformYearDataForChart = (
     cities: DaylightData[]
 ): ChartRow[] => {
     if (cities.length === 0) return [];
-    const daysCount = cities[0].year.data.length;
+
+    const daysCount = Math.min(...cities.map((c) => c.year.data.length));
     const chartData: ChartRow[] = [];
 
     for (let i = 0; i < daysCount; i++) {
