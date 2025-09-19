@@ -33,7 +33,7 @@ const CityList = ({
                     removeAllCities={removeAllCities}
                 />
             )}
-            {savedCities?.map((city) => (
+            {savedCities.map((city) => (
                 <CityListItem
                     key={city.id}
                     city={city}

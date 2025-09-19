@@ -13,5 +13,5 @@ export const NoApiAccess = () => {
         return () => clearTimeout(id);
     }, []);
 
-    return <Message message={noApi.message} type="error" />;
+    return <Message message={noApi.message} type={noApi.type} />;
 };

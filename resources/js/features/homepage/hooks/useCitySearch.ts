@@ -40,8 +40,6 @@ export const useCitySearch = () => {
         },
         onError: (error: unknown) => {
             console.log("Search error", error);
-            const errorMessage =
-                error instanceof Error ? error.message : "Search failed";
             setSearchMessage(nullMessage);
             setSearchMessage({
                 message: "Network error. Please try again.",

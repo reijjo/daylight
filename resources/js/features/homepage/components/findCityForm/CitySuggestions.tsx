@@ -39,6 +39,8 @@ export const CitySuggestions = ({
                             type="button"
                             onClick={() => onCitySelect(found)}
                             key={found.place_id}
+                            role="option"
+                            aria-selected="false"
                             className="text-balance text-start border-b last:border-none border-black cursor-pointer hover:bg-white/90 py-2 px-4 transition-colors duration-150 w-full"
                         >
                             {parseCity(found.display_name)}

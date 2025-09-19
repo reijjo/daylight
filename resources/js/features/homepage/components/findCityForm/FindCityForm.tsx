@@ -24,7 +24,7 @@ export const FindCityForm = ({ handleCitySelect, msg }: FindCityFormProps) => {
         formState: { errors },
         clearErrors,
         setValue,
-    } = useForm<{ city: string }>({
+    } = useForm<FormValues>({
         mode: "onChange",
     });
 
@@ -64,11 +64,7 @@ export const FindCityForm = ({ handleCitySelect, msg }: FindCityFormProps) => {
                         }}
                     />
                 </div>
-                <Button
-                    type="submit"
-                    onClick={handleSubmit(onSubmit)}
-                    ariaLabel="Search"
-                >
+                <Button type="submit" ariaLabel="Search">
                     Search
                 </Button>
             </form>

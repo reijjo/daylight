@@ -1,5 +1,5 @@
 import { ErrorBoundary } from "react-error-boundary";
-import { Layout, Message } from "../../components";
+import { Layout } from "../../components";
 import { FindCityForm } from "../../features/homepage/components";
 import { useDaylight } from "../../features/homepage/hooks";
 import { FoundCity } from "../../utils";
