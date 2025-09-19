@@ -1,5 +1,5 @@
 import { Input } from "../../../../components/ui/Input";
-import { FoundCity } from "../../../../utils/types";
+import { FoundCity, MessageProps } from "../../../../utils/types";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { Message } from "../../../../components/ui/Message";
 import { useCitySearch } from "../../hooks/useCitySearch";
@@ -12,16 +12,11 @@ type FormValues = {
 
 interface FindCityFormProps {
     handleCitySelect: (city: FoundCity) => void;
-    isAddingCity: boolean;
-    msg?: string;
+    msg?: MessageProps;
 }
 
-export const FindCityForm = ({
-    handleCitySelect,
-    isAddingCity,
-    msg,
-}: FindCityFormProps) => {
-    const { searchMutation } = useCitySearch();
+export const FindCityForm = ({ handleCitySelect, msg }: FindCityFormProps) => {
+    const { searchMutation, searchMessage } = useCitySearch();
 
     const {
         register,
@@ -77,20 +72,16 @@ export const FindCityForm = ({
                     Search
                 </Button>
             </form>
-            {searchMutation.isPending && (
-                <Message message="Searching..." type="info" />
+            {searchMessage && (
+                <Message
+                    message={searchMessage.message}
+                    type={searchMessage.type}
+                />
             )}
-            {isAddingCity && (
-                <Message message={msg || "Adding city..."} type="info" />
-            )}
-            {searchMutation.data?.length === 0 && searchMutation.isSuccess && (
-                <Message message="No cities found." type="error" />
-            )}
+            {msg && <Message message={msg.message} type={msg.type} />}
             {errors.city?.message && (
                 <Message type="error" message={errors.city?.message} />
             )}
-            {!isAddingCity && msg && <Message message={msg} type="info" />}
-
             <CitySuggestions
                 suggestions={searchMutation?.data || null}
                 onCitySelect={onCitySelect}

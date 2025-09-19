@@ -16,9 +16,7 @@ const HomePage = () => {
         daylightMutation,
         removeCity,
         removeAllCities,
-        isLoading,
-        error,
-        msg,
+        daylightMessage,
     } = useDaylight();
 
     const handleCitySelect = (city: FoundCity) => {
@@ -31,8 +29,7 @@ const HomePage = () => {
                 <Hero />
                 <FindCityForm
                     handleCitySelect={handleCitySelect}
-                    isAddingCity={isLoading}
-                    msg={msg}
+                    msg={daylightMessage}
                 />
                 <Suspense
                     fallback={
