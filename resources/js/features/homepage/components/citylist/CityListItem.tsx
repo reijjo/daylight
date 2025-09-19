@@ -1,5 +1,6 @@
 import { DaylightData } from "../../../../utils/types";
 import close from "../../../../../assets/images/close.png";
+import { CloseButton } from "../../../../components/ui/buttons/CloseButton";
 
 interface CitylistItemProps {
     city: DaylightData;
@@ -25,20 +26,10 @@ export const CityListItem = ({ city, removeCity }: CitylistItemProps) => {
                     <p>Sunset</p>
                 </div>
             </div>
-            <button
-                type="button"
-                aria-label={`Remove ${city.city}`}
+            <CloseButton
                 onClick={() => removeCity(city.id)}
-                className="absolute top-2 right-2 cursor-pointer bg-white/50 p-1 grid place-items-center rounded-full hover:scale-110 active:scale-90 transition-all duration-150 ease-in"
-            >
-                <img
-                    src={close}
-                    title="close"
-                    alt="close"
-                    className="h-4 w-4"
-                    aria-hidden="true"
-                />
-            </button>
+                ariaLabel={`Remove ${city.city}`}
+            />
         </div>
     );
 };
