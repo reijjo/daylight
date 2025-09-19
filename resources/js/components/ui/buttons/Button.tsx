@@ -8,6 +8,7 @@ export const Button = ({
     children,
     ariaLabel,
     secondary,
+    type = "button",
     ...props
 }: ButtonProps) => {
     return (
@@ -18,6 +19,7 @@ export const Button = ({
                     : "bg-emerald-800/75 hover:bg-emerald-700 border-white/20"
             }`}
             aria-label={ariaLabel}
+            type={type}
             {...props}
         >
             {children}

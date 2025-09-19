@@ -70,11 +70,12 @@ export const FindCityForm = ({
                     />
                 </div>
                 <Button
-                    children="Search"
                     type="submit"
                     onClick={handleSubmit(onSubmit)}
                     ariaLabel="Search"
-                />
+                >
+                    Search
+                </Button>
             </form>
             {searchMutation.isPending && (
                 <Message message="Searching..." type="info" />

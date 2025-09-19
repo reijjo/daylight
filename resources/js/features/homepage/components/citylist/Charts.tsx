@@ -33,23 +33,15 @@ export const Charts = ({ savedCities, removeAllCities }: ChartsProps) => {
             )}
             <div className="flex justify-end gap-4 min-h-10 flex-col sm:flex-row">
                 <Button
-                    children={
-                        step === 1 ? "Show every 7th day" : "Show all days"
-                    }
                     aria-pressed={step !== 1}
                     onClick={() => setStep(step === 1 ? 7 : 1)}
                     secondary
-                    type="button"
-                />
-                <Button
-                    type="button"
-                    onClick={() => setIsBarchart(!isBarchart)}
-                    children={
-                        isBarchart
-                            ? "Switch to Linechart"
-                            : "Switch to Barchart"
-                    }
-                />
+                >
+                    {step === 1 ? "Show every 7th day" : "Show all days"}
+                </Button>
+                <Button onClick={() => setIsBarchart(!isBarchart)}>
+                    {isBarchart ? "Switch to Linechart" : "Switch to Barchart"}
+                </Button>
             </div>
         </div>
     );
