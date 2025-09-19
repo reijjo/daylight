@@ -4,7 +4,7 @@ import { nullMessage, MessageProps } from "../../utils";
 
 export const NoApiAccess = () => {
     const [noApi, setNoApi] = useState<MessageProps>({
-        message: "No API access on mobileview",
+        message: "No API access on mobile view",
         type: "error",
     });
 
