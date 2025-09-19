@@ -2,7 +2,7 @@ import { beforeEach, describe, expect, test, vi } from "vitest";
 import { renderHook, waitFor } from "@testing-library/react";
 import { useDaylight } from "../../../features/homepage/hooks/useDaylight";
 import { createWrapper } from "../../test-utils";
-import { FoundCity } from "../../../utils/types";
+import { FoundCity } from "../../../utils";
 
 vi.mock("../../../features/homepage/api/daylightApi", () => ({
     getDaylight: vi.fn(),

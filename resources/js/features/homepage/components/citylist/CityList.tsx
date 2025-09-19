@@ -1,8 +1,8 @@
-import { DaylightData } from "../../../../utils/types";
-import { useExampleCity } from "../../hooks/useExampleCity";
+import { DaylightData } from "../../../../utils";
 import { useEffect } from "react";
-import { CityListItem } from "./CityListItem";
+import { useExampleCity } from "../../hooks";
 import { Charts } from "./Charts";
+import { CityListItem } from "./CityListItem";
 
 interface CityListProps {
     savedCities: DaylightData[];
@@ -33,7 +33,7 @@ const CityList = ({
                     removeAllCities={removeAllCities}
                 />
             )}
-            {savedCities.map((city) => (
+            {savedCities?.map((city) => (
                 <CityListItem
                     key={city.id}
                     city={city}

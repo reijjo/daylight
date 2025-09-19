@@ -1,9 +1,11 @@
-import { Layout } from "../../components/shared/Layout";
-import { FindCityForm } from "../../features/homepage/components/findCityForm/FindCityForm";
-import { useDaylight } from "../../features/homepage/hooks/useDaylight";
-import { FoundCity } from "../../utils/types";
+import { ErrorBoundary } from "react-error-boundary";
+import { Layout, Message } from "../../components";
+import { FindCityForm } from "../../features/homepage/components";
+import { useDaylight } from "../../features/homepage/hooks";
+import { FoundCity } from "../../utils";
 import { Hero } from "./hero/Hero";
 import { lazy, Suspense } from "react";
+import { NoApiAccess } from "../../components/fallback/NoApiAccess";
 
 const CityList = lazy(
     () => import("../../features/homepage/components/citylist/CityList")
@@ -31,18 +33,20 @@ const HomePage = () => {
                     handleCitySelect={handleCitySelect}
                     msg={daylightMessage}
                 />
-                <Suspense
-                    fallback={
-                        <output className="w-max">Loading cities...</output>
-                    }
-                >
-                    <CityList
-                        savedCities={savedCities}
-                        setSavedCities={setSavedCities}
-                        removeCity={removeCity}
-                        removeAllCities={removeAllCities}
-                    />
-                </Suspense>
+                <ErrorBoundary FallbackComponent={NoApiAccess}>
+                    <Suspense
+                        fallback={
+                            <output className="w-max">Loading cities...</output>
+                        }
+                    >
+                        <CityList
+                            savedCities={savedCities}
+                            setSavedCities={setSavedCities}
+                            removeCity={removeCity}
+                            removeAllCities={removeAllCities}
+                        />
+                    </Suspense>
+                </ErrorBoundary>
             </div>
         </Layout>
     );

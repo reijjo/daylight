@@ -7,9 +7,8 @@ import {
     XAxis,
     YAxis,
 } from "recharts";
-import { CHART_COLORS } from "../../../../utils/constants";
+import { CHART_COLORS, DaylightData } from "../../../../utils";
 import { CustomTooltip } from "./CustomTooltip";
-import { DaylightData } from "../../../../utils/types";
 import { transformYearDataForChart, sampleChartData } from "./chartUtils";
 
 interface SunlightLineProps {
@@ -17,7 +16,7 @@ interface SunlightLineProps {
     step: number;
 }
 
-const SunlightLine = ({ data, step }: SunlightLineProps) => {
+export const SunlightLine = ({ data, step }: SunlightLineProps) => {
     if (data.length === 0) return null;
 
     let chartData = transformYearDataForChart(data);
@@ -47,5 +46,3 @@ const SunlightLine = ({ data, step }: SunlightLineProps) => {
         </ResponsiveContainer>
     );
 };
-
-export default SunlightLine;

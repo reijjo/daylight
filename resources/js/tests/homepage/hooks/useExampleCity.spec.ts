@@ -5,7 +5,7 @@ import {
 } from "../../../features/homepage/api/daylightApi";
 import { renderHook, waitFor } from "@testing-library/react";
 import { createWrapper } from "../../test-utils";
-import { FoundCity } from "../../../utils/types";
+import { FoundCity } from "../../../utils";
 import { useExampleCity } from "../../../features/homepage/hooks/useExampleCity";
 
 vi.mock("../../../features/homepage/api/daylightApi");

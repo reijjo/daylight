@@ -1,4 +1,4 @@
-import { DaylightData } from "../../../../utils/types";
+import { DaylightData } from "../../../../utils";
 
 export interface ChartRow {
     date: string;
