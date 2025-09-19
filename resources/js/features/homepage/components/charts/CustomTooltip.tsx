@@ -25,9 +25,12 @@ export const CustomTooltip = ({
                             style={{ color: colors[i % colors.length] }}
                         >
                             <p>{p.name}:</p>
-                            <p>
-                                {hours}h {minutes}m
-                            </p>
+                            <div className="flex gap-2">
+                                <p>
+                                    {hours}h {minutes}m
+                                </p>
+                                <p>({Math.floor(p.value)} minutes)</p>
+                            </div>
                         </div>
                     );
                 })}
