@@ -4,6 +4,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { Message } from "../../../../components/ui/Message";
 import { useCitySearch } from "../../hooks/useCitySearch";
 import { CitySuggestions } from "./CitySuggestions";
+import { Button } from "../../../../components/ui/buttons/Button";
 
 type FormValues = {
     city: string;
@@ -45,15 +46,17 @@ export const FindCityForm = ({
     };
 
     return (
-        <div className="max-w-sm w-8/10 sm:max-w-md flex flex-col gap-2 relative">
+        <div className="max-w-sm w-8/10 sm:max-w-md flex flex-col gap-2 mb-2 relative">
             <form
                 onSubmit={handleSubmit(onSubmit)}
-                className="w-full flex flex-col gap-2 sm:flex-row h-12"
+                className="w-full flex flex-col gap-2 sm:flex-row min-h-12"
             >
                 <div className="w-full flex flex-col gap-1">
                     <Input
                         id="city"
                         placeholder="Find a city"
+                        autoComplete="off"
+                        type="text"
                         {...register("city", {
                             required: "City is required.",
                             maxLength: {
@@ -63,17 +66,15 @@ export const FindCityForm = ({
                         })}
                         onFocus={() => {
                             searchMutation.reset();
-                            // clearErrors("city");
                         }}
                     />
                 </div>
-                <button
+                <Button
+                    children="Search"
                     type="submit"
-                    disabled={searchMutation.isPending || isAddingCity}
-                    className="border border-white/20 px-4 py-2 rounded-4xl cursor-pointer whitespace-nowrap bg-emerald-800/75 hover:bg-emerald-700 active:scale-90 transition-all duration-150 ease-in disabled:opacity-50 disabled:cursor-not-allowed h-full"
-                >
-                    Search
-                </button>
+                    onClick={handleSubmit(onSubmit)}
+                    ariaLabel="Search"
+                />
             </form>
             {searchMutation.isPending && (
                 <Message message="Searching..." type="info" />
