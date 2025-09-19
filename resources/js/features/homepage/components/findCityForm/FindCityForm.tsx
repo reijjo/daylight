@@ -1,5 +1,5 @@
 import { Input } from "../../../../components/ui/Input";
-import { FoundCity, MessageProps } from "../../../../utils/types";
+import { FoundCity, MessageProps } from "../../../../utils";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { Message } from "../../../../components/ui/Message";
 import { useCitySearch } from "../../hooks/useCitySearch";
@@ -24,7 +24,7 @@ export const FindCityForm = ({ handleCitySelect, msg }: FindCityFormProps) => {
         formState: { errors },
         clearErrors,
         setValue,
-    } = useForm<{ city: string }>({
+    } = useForm<FormValues>({
         mode: "onChange",
     });
 
@@ -64,11 +64,7 @@ export const FindCityForm = ({ handleCitySelect, msg }: FindCityFormProps) => {
                         }}
                     />
                 </div>
-                <Button
-                    type="submit"
-                    onClick={handleSubmit(onSubmit)}
-                    ariaLabel="Search"
-                >
+                <Button type="submit" ariaLabel="Search">
                     Search
                 </Button>
             </form>

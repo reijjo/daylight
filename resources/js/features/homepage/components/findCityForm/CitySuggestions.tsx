@@ -1,4 +1,4 @@
-import { FoundCity } from "../../../../utils/types";
+import { FoundCity } from "../../../../utils";
 
 interface CitySuggestionsProps {
     suggestions: FoundCity[] | null;
@@ -28,7 +28,7 @@ export const CitySuggestions = ({
 
     return (
         <>
-            {suggestions && (
+            {suggestions && suggestions.length > 0 && (
                 <div
                     className="w-full bg-white/90 text-black rounded-2xl overflow-hidden shadow-lg shadow-white/20 mb-4 absolute top-14 left-0 z-10"
                     role="listbox"
@@ -39,6 +39,8 @@ export const CitySuggestions = ({
                             type="button"
                             onClick={() => onCitySelect(found)}
                             key={found.place_id}
+                            role="option"
+                            aria-selected="false"
                             className="text-balance text-start border-b last:border-none border-black cursor-pointer hover:bg-white/90 py-2 px-4 transition-colors duration-150 w-full"
                         >
                             {parseCity(found.display_name)}

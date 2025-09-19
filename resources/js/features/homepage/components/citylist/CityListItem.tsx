@@ -1,6 +1,5 @@
-import { DaylightData } from "../../../../utils/types";
-import close from "../../../../../assets/images/close.png";
-import { CloseButton } from "../../../../components/ui/buttons/CloseButton";
+import { CloseButton } from "../../../../components";
+import { DaylightData } from "../../../../utils";
 
 interface CitylistItemProps {
     city: DaylightData;

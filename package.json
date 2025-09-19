@@ -6,7 +6,8 @@
         "build": "vite build",
         "dev": "vite",
         "test": "vitest",
-        "test:cover": "vitest run --coverage"
+        "test:cover": "vitest run --coverage",
+        "clean": "rm -rf node_modules .bun bun.lockb **/dist"
     },
     "devDependencies": {
         "@tailwindcss/vite": "^4.0.0",

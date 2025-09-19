@@ -3,7 +3,7 @@ import { getCities } from "../../../features/homepage/api/daylightApi";
 import { renderHook, waitFor } from "@testing-library/react";
 import { useCitySearch } from "../../../features/homepage/hooks/useCitySearch";
 import { createWrapper } from "../../test-utils";
-import { FoundCity } from "../../../utils/types";
+import { FoundCity } from "../../../utils";
 
 vi.mock("../../../features/homepage/api/daylightApi");
 const mockGetCities = vi.mocked(getCities);

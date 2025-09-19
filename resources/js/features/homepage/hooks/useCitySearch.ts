@@ -1,8 +1,7 @@
-import { FoundCity, MessageProps } from "../../../utils/types";
+import { FoundCity, MessageProps, nullMessage } from "../../../utils";
 import { useMutation } from "@tanstack/react-query";
 import { getCities } from "../api/daylightApi";
 import { useCallback, useState } from "react";
-import { nullMessage } from "../../../utils/defaults";
 
 export const useCitySearch = () => {
     const [searchMessage, setSearchMessage] =
@@ -41,10 +40,11 @@ export const useCitySearch = () => {
         },
         onError: (error: unknown) => {
             console.log("Search error", error);
-            const errorMessage =
-                error instanceof Error ? error.message : "Search failed";
             setSearchMessage(nullMessage);
-            setSearchMessage({ message: errorMessage, type: "error" });
+            setSearchMessage({
+                message: "Network error. Please try again.",
+                type: "error",
+            });
             clearMessage();
         },
     });

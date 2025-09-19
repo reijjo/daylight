@@ -8,8 +8,7 @@ import {
     Bar,
 } from "recharts";
 import { sampleChartData, transformYearDataForChart } from "./chartUtils";
-import { DaylightData } from "../../../../utils/types";
-import { CHART_COLORS } from "../../../../utils/constants";
+import { DaylightData, CHART_COLORS } from "../../../../utils";
 import { CustomTooltip } from "./CustomTooltip";
 
 interface SunlightBarProps {
@@ -17,7 +16,7 @@ interface SunlightBarProps {
     step: number;
 }
 
-const SunlightBar = ({ data, step }: SunlightBarProps) => {
+export const SunlightBar = ({ data, step }: SunlightBarProps) => {
     if (data.length === 0) return null;
 
     let chartData = transformYearDataForChart(data);
@@ -44,5 +43,3 @@ const SunlightBar = ({ data, step }: SunlightBarProps) => {
         </ResponsiveContainer>
     );
 };
-
-export default SunlightBar;

@@ -1,5 +1,5 @@
 import axios, { isAxiosError } from "axios";
-import { FoundCity } from "../../../utils/types";
+import { FoundCity } from "../../../utils";
 
 export const getCities = async (city: string) => {
     try {

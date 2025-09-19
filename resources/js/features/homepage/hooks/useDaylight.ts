@@ -1,9 +1,13 @@
 import { useMutation } from "@tanstack/react-query";
-import { DaylightData, FoundCity, MessageProps } from "../../../utils/types";
+import {
+    DaylightData,
+    FoundCity,
+    MessageProps,
+    nullMessage,
+    MAX_CITIES,
+} from "../../../utils";
 import { getDaylight } from "../api/daylightApi";
 import { useCallback, useState } from "react";
-import { MAX_CITIES } from "../../../utils/constants";
-import { nullMessage } from "../../../utils/defaults";
 
 export const useDaylight = () => {
     const [savedCities, setSavedCities] = useState<DaylightData[]>([]);
@@ -47,7 +51,6 @@ export const useDaylight = () => {
                     );
                 if (exists) {
                     setDaylightMessage(nullMessage);
-
                     setDaylightMessage({
                         message: "City already added.",
                         type: "info",
@@ -61,7 +64,6 @@ export const useDaylight = () => {
 
             if (data.message) {
                 setDaylightMessage(nullMessage);
-
                 setDaylightMessage({
                     message: data.message,
                     type: "success",
@@ -74,7 +76,6 @@ export const useDaylight = () => {
             const errorMessage =
                 error instanceof Error ? error.message : "Search failed";
             setDaylightMessage(nullMessage);
-
             setDaylightMessage({ message: errorMessage, type: "error" });
             clearMessage();
         },

@@ -1,4 +1,4 @@
-import { MessageProps } from "../../utils/types";
+import { MessageProps } from "../../utils";
 
 export const Message = ({ message, type }: MessageProps) => {
     if (message)
@@ -20,7 +20,7 @@ export const Message = ({ message, type }: MessageProps) => {
                         .join(" ")
                         .trim()}
                 >
-                    <p>{message}</p>
+                    <p className="text-balance">{message}</p>
                 </div>
             </div>
         );

@@ -1,10 +1,7 @@
 import { useState } from "react";
-import { DaylightData } from "../../../../utils/types";
-import SunlightBar from "../charts/SunlightBar";
-import SunlightLine from "../charts/SunlightLine";
-import close from "../../../../../assets/images/close.png";
-import { CloseButton } from "../../../../components/ui/buttons/CloseButton";
-import { Button } from "../../../../components/ui/buttons/Button";
+import { DaylightData } from "../../../../utils";
+import { CloseButton, Button } from "../../../../components";
+import { SunlightBar, SunlightLine } from "../charts";
 
 interface ChartsProps {
     savedCities: DaylightData[];
@@ -23,9 +20,7 @@ export const Charts = ({ savedCities, removeAllCities }: ChartsProps) => {
                 ariaLabel="Remove all cities"
             />
 
-            <h1 className="text-center uppercase text-lg sm:text-xl">
-                Daylight in minutes
-            </h1>
+            <h1 className="text-lg">minutes</h1>
             {isBarchart ? (
                 <SunlightBar data={savedCities} step={step} />
             ) : (

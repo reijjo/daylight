@@ -1,10 +1,10 @@
 import { FindCityForm } from "./FindCityForm";
 import { renderWithQueryClient } from "../../../../tests/test-utils";
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import { screen, waitFor } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
-import { MessageProps } from "../../../../utils/types";
+import { MessageProps } from "../../../../utils";
 
 vi.mock("../api/daylightApi", async () => {
     const actual = await vi.importActual("../api/daylightApi");
