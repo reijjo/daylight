@@ -1,10 +1,8 @@
-import { Input } from "../../../../components/ui/Input";
+import { Input, Button, Message } from "../../../../components";
 import { FoundCity, MessageProps } from "../../../../utils";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { Message } from "../../../../components/ui/Message";
-import { useCitySearch } from "../../hooks/useCitySearch";
+import { useCitySearch } from "../../hooks";
 import { CitySuggestions } from "./CitySuggestions";
-import { Button } from "../../../../components/ui/buttons/Button";
 
 type FormValues = {
     city: string;
