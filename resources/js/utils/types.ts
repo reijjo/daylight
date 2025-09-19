@@ -26,3 +26,8 @@ export interface DaylightData {
     lon?: string;
     year: DaylightDataYear;
 }
+
+export interface MessageProps {
+    message: string | null;
+    type: "success" | "error" | "info";
+}

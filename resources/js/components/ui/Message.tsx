@@ -1,7 +1,4 @@
-interface MessageProps {
-    message: string | null;
-    type: "success" | "error" | "info";
-}
+import { MessageProps } from "../../utils/types";
 
 export const Message = ({ message, type }: MessageProps) => {
     if (message)

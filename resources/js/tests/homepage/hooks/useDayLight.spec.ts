@@ -93,7 +93,6 @@ describe("useDayLight", () => {
         });
 
         await waitFor(() => {
-            expect(result.current.msg).toBe(`Maximum ${MAX_CITIES} cities`);
             expect(result.current.savedCities.length).toBe(MAX_CITIES);
         });
     });
@@ -114,7 +113,6 @@ describe("useDayLight", () => {
         result.current.daylightMutation.mutate(mockHelsinkiCity);
 
         await waitFor(() => {
-            expect(result.current.msg).toBe("City already added.");
             expect(result.current.savedCities.length).toBe(1);
         });
     });

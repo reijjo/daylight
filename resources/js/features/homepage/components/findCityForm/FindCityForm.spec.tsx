@@ -4,6 +4,7 @@ import { beforeEach, describe, expect, test, vi } from "vitest";
 import { screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
+import { MessageProps } from "../../../../utils/types";
 
 vi.mock("../api/daylightApi", async () => {
     const actual = await vi.importActual("../api/daylightApi");
@@ -14,24 +15,7 @@ vi.mock("../api/daylightApi", async () => {
     };
 });
 
-// const useDaylightMock = vi.fn(() => {
-//     return {
-//         savedCities: [],
-//         daylightMutation: {
-//             isLoading: true,
-//             mutate: vi.fn(),
-//             data: null,
-//             error: null,
-//             isPending: false,
-//         },
-//         removeCity: vi.fn(),
-//         removeAllCities: vi.fn(),
-//         error: null,
-//     };
-// });
-
 const mockHandleCitySelect = vi.fn();
-const mockIsAddingCity = false;
 
 beforeEach(() => {
     vi.clearAllMocks();
@@ -40,10 +24,7 @@ beforeEach(() => {
 describe("FindCityForm", () => {
     test("shows city suggestions", async () => {
         renderWithQueryClient(
-            <FindCityForm
-                handleCitySelect={mockHandleCitySelect}
-                isAddingCity={mockIsAddingCity}
-            />
+            <FindCityForm handleCitySelect={mockHandleCitySelect} />
         );
 
         const input = screen.getByPlaceholderText(/find a city/i);
@@ -63,10 +44,7 @@ describe("FindCityForm", () => {
     describe("Messages", () => {
         test("No cities found messsage", async () => {
             renderWithQueryClient(
-                <FindCityForm
-                    handleCitySelect={mockHandleCitySelect}
-                    isAddingCity={mockIsAddingCity}
-                />
+                <FindCityForm handleCitySelect={mockHandleCitySelect} />
             );
 
             const input = screen.getByPlaceholderText(/find a city/i);
@@ -81,10 +59,7 @@ describe("FindCityForm", () => {
 
         test("Too long city name", async () => {
             renderWithQueryClient(
-                <FindCityForm
-                    handleCitySelect={mockHandleCitySelect}
-                    isAddingCity={mockIsAddingCity}
-                />
+                <FindCityForm handleCitySelect={mockHandleCitySelect} />
             );
 
             const input = screen.getByPlaceholderText(/find a city/i);
@@ -100,12 +75,15 @@ describe("FindCityForm", () => {
         });
 
         test("Adding city...", async () => {
-            const mockIsAddingCityTrue = true;
+            const mockAddCity: MessageProps = {
+                message: "Adding city...",
+                type: "info",
+            };
 
             renderWithQueryClient(
                 <FindCityForm
                     handleCitySelect={mockHandleCitySelect}
-                    isAddingCity={mockIsAddingCityTrue}
+                    msg={mockAddCity}
                 />
             );
 
@@ -114,11 +92,14 @@ describe("FindCityForm", () => {
         });
 
         test("shows success message when msg provided", async () => {
+            const mockSuccessCity: MessageProps = {
+                message: "City added!",
+                type: "info",
+            };
             renderWithQueryClient(
                 <FindCityForm
                     handleCitySelect={mockHandleCitySelect}
-                    isAddingCity={false}
-                    msg="City added!"
+                    msg={mockSuccessCity}
                 />
             );
             expect(await screen.findByText(/city added!/i)).toBeInTheDocument();
