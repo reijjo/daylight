@@ -1,7 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
 import { DaylightData, FoundCity, MessageProps } from "../../../utils/types";
 import { getDaylight } from "../api/daylightApi";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { MAX_CITIES } from "../../../utils/constants";
 import { nullMessage } from "../../../utils/defaults";
 
@@ -10,11 +10,13 @@ export const useDaylight = () => {
     const [daylightMessage, setDaylightMessage] =
         useState<MessageProps>(nullMessage);
 
-    const clearMessage = () => {
-        setTimeout(() => {
+    const clearMessage = useCallback(() => {
+        const timeoutId = setTimeout(() => {
             setDaylightMessage(nullMessage);
         }, 5000);
-    };
+
+        return timeoutId;
+    }, []);
 
     const daylightMutation = useMutation({
         mutationFn: (city: FoundCity) => getDaylight(city),
@@ -30,6 +32,7 @@ export const useDaylight = () => {
 
             setSavedCities((prev) => {
                 if (prev.length >= MAX_CITIES) {
+                    setDaylightMessage(nullMessage);
                     setDaylightMessage({
                         message: `Maximum ${MAX_CITIES} cities`,
                         type: "info",
@@ -43,6 +46,8 @@ export const useDaylight = () => {
                         (c) => c.lat === newCity.lat && c.lon === newCity.lon
                     );
                 if (exists) {
+                    setDaylightMessage(nullMessage);
+
                     setDaylightMessage({
                         message: "City already added.",
                         type: "info",
@@ -55,6 +60,8 @@ export const useDaylight = () => {
             });
 
             if (data.message) {
+                setDaylightMessage(nullMessage);
+
                 setDaylightMessage({
                     message: data.message,
                     type: "success",
@@ -66,6 +73,8 @@ export const useDaylight = () => {
             console.log("Daylight error", error);
             const errorMessage =
                 error instanceof Error ? error.message : "Search failed";
+            setDaylightMessage(nullMessage);
+
             setDaylightMessage({ message: errorMessage, type: "error" });
             clearMessage();
         },
