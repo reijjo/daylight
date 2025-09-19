@@ -15,6 +15,7 @@ const CityList = ({
     savedCities,
     setSavedCities,
     removeCity,
+    removeAllCities,
 }: CityListProps) => {
     const { exampleDaylight } = useExampleCity();
 
@@ -26,7 +27,12 @@ const CityList = ({
 
     return (
         <div className="flex items-center justify-center flex-wrap gap-4 w-9/10">
-            {savedCities.length > 0 && <Charts savedCities={savedCities} />}
+            {savedCities.length > 0 && (
+                <Charts
+                    savedCities={savedCities}
+                    removeAllCities={removeAllCities}
+                />
+            )}
             {savedCities.map((city) => (
                 <CityListItem
                     key={city.id}

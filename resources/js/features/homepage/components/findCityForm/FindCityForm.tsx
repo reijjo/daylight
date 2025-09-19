@@ -48,7 +48,7 @@ export const FindCityForm = ({
         <div className="max-w-sm w-8/10 sm:max-w-md flex flex-col gap-2 relative">
             <form
                 onSubmit={handleSubmit(onSubmit)}
-                className="w-full flex flex-col gap-2 sm:flex-row"
+                className="w-full flex flex-col gap-2 sm:flex-row h-12"
             >
                 <div className="w-full flex flex-col gap-1">
                     <Input
@@ -70,7 +70,7 @@ export const FindCityForm = ({
                 <button
                     type="submit"
                     disabled={searchMutation.isPending || isAddingCity}
-                    className="border border-white/20 px-4 py-2 rounded-4xl h-12 cursor-pointer whitespace-nowrap bg-emerald-800/75 hover:bg-emerald-700 active:scale-90 transition-all duration-150 ease-in disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="border border-white/20 px-4 py-2 rounded-4xl cursor-pointer whitespace-nowrap bg-emerald-800/75 hover:bg-emerald-700 active:scale-90 transition-all duration-150 ease-in disabled:opacity-50 disabled:cursor-not-allowed h-full"
                 >
                     Search
                 </button>
