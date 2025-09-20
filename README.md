@@ -1,16 +1,14 @@
-# daylight
-
 # What is this?
 
 A web app that visualizes how daylight hours change throughout the year in different Finnish cities.
 
 # How to use?
 
-## IMPORTANTE!
+## Important!
 
 Rename the `.env.example` file to `.env`!
 
-Go to `https://opencagedata.com/` and make an account so you can get the `apikey` for finding cities.
+Create an account at `https://opencagedata.com/` to obtain an API key.
 
 -   Add the `apikey` in the bottom on the `.env` file:
 
@@ -19,7 +17,7 @@ VITE_GEOAPI_KEY=YOUR_OPENCAGEDATA_API_KEY_HERE_!
 ```
 
 <details>
-	<summary>requirements</summary>
+	<summary>Requirements</summary>
 
 ### Make sure you have PHP, Composer and Laravel installed
 
@@ -35,12 +33,12 @@ VITE_GEOAPI_KEY=YOUR_OPENCAGEDATA_API_KEY_HERE_!
 
 Run `npm run start` and go `http://localhost:8000/` for your project
 
--   If that doesnt work run `npm install` -> `npm run build` -> `php artisan serve`
+-   If that doesn't work run `npm install` -> `npm run build` -> `php artisan serve`
 -   Sometimes `npm run clean` helps
 
 ## Dev environment
 
-Run frontend and backend in different terminals: `npm run dev` for react stuff and `php artisan serve` for backend
+Run frontend and backend in different terminals: `npm run dev` for React stuff and `php artisan serve` for backend
 
 -   `http://localhost:8000/` for your project
 
@@ -56,14 +54,14 @@ Run frontend unit tests with `npm run test`
 
 ## This project is done with `React`, `TypeScript`, `TailwindCSS` and `Laravel`
 
--   `TanStack Query` for queries
--   `OpenCage Geocoding API` for finding cities and langitudes and longitudes
+-   [`TanStack Query`](https://tanstack.com/query/latest) for queries
+-   [`OpenCage Geocoding API`](https://opencagedata.com/) for finding cities and latitudes/longitudes
 
 ## Task
 
 <details>
 	<summary>The task itself</summary>
-	<pIntro:
+	<p>Intro:
 Finland is a long country, which gets dark in the winter and light during the summer. In Lapland the change is more drastic than in Helsinki.
 
 The task:
