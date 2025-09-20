@@ -29,6 +29,12 @@ VITE_GEOAPI_KEY=YOUR_OPENCAGEDATA_API_KEY_HERE_!
 
 </details>
 
+## Setup
+
+Run `npm run setup` at first to intall all necessary dependencies
+
+-   If there is an error, check the `package.json` file and run the commands one by one that is under `scripts` and `setup`
+
 ## Production
 
 Run `npm run start` and go `http://localhost:8000/` for your project
@@ -52,7 +58,7 @@ Run frontend unit tests with `npm run test`
 
 ### With what?
 
-## This project is done with `React`, `TypeScript`, `TailwindCSS` and `Laravel`
+This project is done with `React`, `TypeScript`, `TailwindCSS` and `Laravel`
 
 -   [`TanStack Query`](https://tanstack.com/query/latest) for queries
 -   [`OpenCage Geocoding API`](https://opencagedata.com/) for finding cities and latitudes/longitudes
