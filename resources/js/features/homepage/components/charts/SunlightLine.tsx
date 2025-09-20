@@ -7,7 +7,7 @@ import {
     XAxis,
     YAxis,
 } from "recharts";
-import { CHART_COLORS, DaylightData } from "../../../../utils";
+import { CHART_COLORS, DaylightData } from "@utils/index";
 import { CustomTooltip } from "./CustomTooltip";
 import { transformYearDataForChart, sampleChartData } from "./chartUtils";
 

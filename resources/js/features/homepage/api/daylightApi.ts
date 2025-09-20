@@ -1,5 +1,5 @@
 import axios, { isAxiosError } from "axios";
-import { FoundCity } from "../../../utils";
+import { FoundCity } from "@utils/index";
 
 const { VITE_GEOAPI, VITE_GEOAPI_KEY } = import.meta.env;
 

@@ -1,12 +1,12 @@
-import { Layout } from "../../components";
-import { FindCityForm } from "../../features/homepage/components";
-import { useDaylight } from "../../features/homepage/hooks";
-import { FoundCity } from "../../utils";
+import { Layout } from "@components/index";
+import { FindCityForm } from "@features/homepage/components";
+import { useDaylight } from "@features/homepage/hooks";
+import { FoundCity } from "@utils/index";
 import { Hero } from "./hero/Hero";
 import { lazy, Suspense } from "react";
 
 const CityList = lazy(
-    () => import("../../features/homepage/components/citylist/CityList")
+    () => import("@features/homepage/components/citylist/CityList")
 );
 
 const HomePage = () => {

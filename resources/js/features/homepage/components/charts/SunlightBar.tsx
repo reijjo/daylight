@@ -8,7 +8,7 @@ import {
     Bar,
 } from "recharts";
 import { sampleChartData, transformYearDataForChart } from "./chartUtils";
-import { DaylightData, CHART_COLORS } from "../../../../utils";
+import { DaylightData, CHART_COLORS } from "@utils/index";
 import { CustomTooltip } from "./CustomTooltip";
 
 interface SunlightBarProps {

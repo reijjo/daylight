@@ -1,4 +1,4 @@
-import { FoundCity, MessageProps, nullMessage } from "../../../utils";
+import { FoundCity, MessageProps, nullMessage } from "@utils/index";
 import { useMutation } from "@tanstack/react-query";
 import { getCities } from "../api/daylightApi";
 import { useCallback, useState } from "react";

@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { DaylightData } from "../../../../utils";
-import { CloseButton, Button } from "../../../../components";
+import { DaylightData } from "@utils/index";
+import { CloseButton, Button } from "@components/index";
 import { SunlightBar, SunlightLine } from "../charts";
 
 interface ChartsProps {

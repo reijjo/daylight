@@ -1,7 +1,7 @@
-import { Input, Button, Message } from "../../../../components";
-import { FoundCity, MessageProps } from "../../../../utils";
+import { Input, Button, Message } from "@components/index";
+import { FoundCity, MessageProps } from "@utils/index";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { useCitySearch } from "../../hooks";
+import { useCitySearch } from "@features/homepage/hooks";
 import { CitySuggestions } from "./CitySuggestions";
 
 type FormValues = {
@@ -50,7 +50,6 @@ export const FindCityForm = ({ handleCitySelect, msg }: FindCityFormProps) => {
                         id="city"
                         placeholder="Find a city"
                         autoComplete="off"
-                        type="text"
                         {...register("city", {
                             required: "City is required.",
                             maxLength: {
