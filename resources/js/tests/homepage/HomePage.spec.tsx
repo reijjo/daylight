@@ -1,7 +1,6 @@
 import { expect, test } from "vitest";
 import { screen } from "@testing-library/react";
-import "@testing-library/jest-dom";
-import HomePage from "./HomePage";
+import HomePage from "./../../Pages/homepage/HomePage";
 import { renderWithQueryClient } from "../../tests/test-utils";
 
 test("renders HomePage", () => {

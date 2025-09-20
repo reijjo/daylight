@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it, vi } from "vitest";
-import { CityListItem } from "./CityListItem";
-import { mockDaylightData } from "../../../../tests/mocks/mocks";
+import { CityListItem } from "../../../../features/homepage/components/citylist/CityListItem";
+import { mockDaylightData } from "../../../mocks/mocks";
 
 describe("CityListItem.tsx", () => {
     it("renders CityListItem", () => {

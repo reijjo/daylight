@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, test } from "vitest";
-import { Button } from "./Button";
-import { CloseButton } from "./CloseButton";
+import { Button } from "../../../../components/ui/buttons/Button";
+import { CloseButton } from "../../../../components/ui/buttons/CloseButton";
 
 describe("Buttons", () => {
     describe("Normal Button", () => {
