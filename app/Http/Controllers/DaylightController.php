@@ -11,7 +11,7 @@ class DaylightController extends Controller
         $lat = $request->input('lat');
         $lon = $request->input('lon');
         $name = $request->input('name');
-        $id = (int) $request->input('place_id');
+        $id = $request->input('place_id');
 
         if (!$lat || !$lon) {
             return response()->json([

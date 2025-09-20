@@ -33,7 +33,7 @@ describe("FindCityForm", () => {
         await userEvent.type(input, "Tampere");
         await userEvent.click(button);
 
-        const tampere = await screen.findByText(/tampere sub-region/i);
+        const tampere = await screen.findByText(/pirkanmaa/i);
         expect(tampere).toBeInTheDocument();
 
         await userEvent.click(tampere);

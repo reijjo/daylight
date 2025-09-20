@@ -23,11 +23,14 @@ const mockDaylightData = {
     lon: "24.9384",
 };
 const mockHelsinkiCity: FoundCity = {
-    place_id: 1,
-    name: "Helsinki",
-    display_name: "Helsinki, Finland",
-    lat: "60.1639",
-    lon: "24.9384",
+    formatted: "Helsinki",
+    geometry: {
+        lat: 60.1639,
+        lng: 24.9384,
+    },
+    annotations: {
+        geohash: "123456",
+    },
 };
 
 beforeEach(() => {
@@ -51,14 +54,14 @@ describe("useDayLight", () => {
 
     test("max cities reached", async () => {
         mockGetDaylight.mockImplementation(async (city) => ({
-            id: city.place_id,
-            city: city.name,
+            id: city.annotations?.geohash || city.formatted,
+            city: city.formatted,
             sunrise: "06:30",
             sunset: "18:45",
             daylength: "12h 15m 2s",
-            message: `${city.name} added!`,
-            lat: city.lat,
-            lon: city.lon,
+            message: `${city.formatted} added!`,
+            lat: city.geometry?.lat,
+            lon: city.geometry?.lng,
         }));
 
         const { result } = renderHook(() => useDaylight(), {
@@ -68,33 +71,33 @@ describe("useDayLight", () => {
         for (let i = 0; i < MAX_CITIES; i++) {
             result.current.daylightMutation.mutate({
                 ...mockHelsinkiCity,
-                place_id: i,
-                name: `City${i}`,
-                display_name: `City${i}, Testland`,
-                lat: `${60 + i}`,
-                lon: `${24 + i}`,
-            });
-
-            await waitFor(() => {
-                expect(result.current.savedCities.length).toBeLessThanOrEqual(
-                    MAX_CITIES
-                );
+                formatted: `City${i}`,
+                annotations: { geohash: `${i}` },
+                geometry: { lat: 60 + i, lng: 24 + i },
             });
         }
-
-        // Try adding more than MAX_CITIES
-        result.current.daylightMutation.mutate({
-            ...mockHelsinkiCity,
-            place_id: 999,
-            name: "OverflowCity",
-            display_name: "OverflowCity, Testland",
-            lat: "70.0",
-            lon: "30.0",
-        });
 
         await waitFor(() => {
             expect(result.current.savedCities.length).toBe(MAX_CITIES);
         });
+
+        // Try adding one more beyond the limit
+        result.current.daylightMutation.mutate({
+            ...mockHelsinkiCity,
+            formatted: "OverflowCity",
+            annotations: { geohash: "overflow" },
+            geometry: { lat: 99, lng: 99 },
+        });
+
+        // Still capped at MAX_CITIES
+        await waitFor(() => {
+            expect(result.current.savedCities.length).toBe(MAX_CITIES);
+        });
+
+        // And we should also see the info message
+        expect(result.current.daylightMessage.message).toBe(
+            `Maximum ${MAX_CITIES} cities`
+        );
     });
 
     test("city already added", async () => {

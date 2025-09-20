@@ -1,11 +1,9 @@
-import { ErrorBoundary } from "react-error-boundary";
 import { Layout } from "../../components";
 import { FindCityForm } from "../../features/homepage/components";
 import { useDaylight } from "../../features/homepage/hooks";
 import { FoundCity } from "../../utils";
 import { Hero } from "./hero/Hero";
 import { lazy, Suspense } from "react";
-import { NoApiAccess } from "../../components/fallback/NoApiAccess";
 
 const CityList = lazy(
     () => import("../../features/homepage/components/citylist/CityList")
@@ -33,20 +31,18 @@ const HomePage = () => {
                     handleCitySelect={handleCitySelect}
                     msg={daylightMessage}
                 />
-                <ErrorBoundary FallbackComponent={NoApiAccess}>
-                    <Suspense
-                        fallback={
-                            <output className="w-max">Loading cities...</output>
-                        }
-                    >
-                        <CityList
-                            savedCities={savedCities}
-                            setSavedCities={setSavedCities}
-                            removeCity={removeCity}
-                            removeAllCities={removeAllCities}
-                        />
-                    </Suspense>
-                </ErrorBoundary>
+                <Suspense
+                    fallback={
+                        <output className="w-max">Loading cities...</output>
+                    }
+                >
+                    <CityList
+                        savedCities={savedCities}
+                        setSavedCities={setSavedCities}
+                        removeCity={removeCity}
+                        removeAllCities={removeAllCities}
+                    />
+                </Suspense>
             </div>
         </Layout>
     );
