@@ -9,7 +9,7 @@ describe("Buttons", () => {
             render(<Button secondary={true}>Test</Button>);
 
             const button = screen.getByRole("button");
-            expect(button.className).toContain("hover:border-white");
+            expect(button).toHaveClass("hover:border-white");
         });
     });
 
@@ -31,7 +31,7 @@ describe("Buttons", () => {
             render(<CloseButton onClick={() => {}} ariaLabel={"test"} />);
 
             const button = screen.getByRole("button");
-            expect(button.className).toContain("absolute top-2 right-2");
+            expect(button).toHaveClass("absolute", "top-2", "right-2");
         });
     });
 });
