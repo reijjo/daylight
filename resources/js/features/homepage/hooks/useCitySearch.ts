@@ -19,7 +19,6 @@ export const useCitySearch = () => {
         mutationFn: (city: string) => getCities(city),
         onMutate: () => {
             setSearchMessage(nullMessage);
-
             setSearchMessage({
                 message: "Searching...",
                 type: "info",
@@ -39,7 +38,6 @@ export const useCitySearch = () => {
             }
         },
         onError: (error: unknown) => {
-            console.log("Search error", error);
             setSearchMessage(nullMessage);
             setSearchMessage({
                 message: "Network error. Please try again.",

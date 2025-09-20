@@ -8,7 +8,7 @@
 
 				<!-- React/Vite/Inertia -->
 				 @viteReactRefresh
-				 @vite(['./resources/js/app.tsx',	'./resources/css/app.css'])
+				 @vite(['resources/js/app.tsx',	'resources/css/app.css'])
 				 @inertiaHead
 		</head>
 		<body>
