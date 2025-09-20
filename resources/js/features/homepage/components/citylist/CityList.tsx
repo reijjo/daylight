@@ -17,13 +17,13 @@ const CityList = ({
     removeCity,
     removeAllCities,
 }: CityListProps) => {
-    const { exampleDaylight } = useExampleCity();
+    // const { exampleDaylight } = useExampleCity();
 
-    useEffect(() => {
-        if (exampleDaylight && savedCities.length === 0) {
-            setSavedCities([exampleDaylight]);
-        }
-    }, [exampleDaylight]);
+    // useEffect(() => {
+    //     if (exampleDaylight && savedCities.length === 0) {
+    //         setSavedCities([exampleDaylight]);
+    //     }
+    // }, [exampleDaylight]);
 
     return (
         <div className="flex items-center justify-center flex-wrap gap-4 w-9/10">

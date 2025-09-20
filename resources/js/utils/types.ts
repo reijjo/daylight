@@ -1,9 +1,12 @@
 export interface FoundCity {
-    place_id: number;
-    name: string;
-    display_name: string;
-    lat: string;
-    lon: string;
+    formatted: string;
+    geometry: {
+        lat: number;
+        lng: number;
+    };
+    annotations: {
+        geohash: string;
+    };
 }
 
 export interface DaylightDataYear {

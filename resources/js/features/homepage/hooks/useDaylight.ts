@@ -1,10 +1,10 @@
 import { useMutation } from "@tanstack/react-query";
 import {
     DaylightData,
-    FoundCity,
     MessageProps,
     nullMessage,
     MAX_CITIES,
+    FoundCity,
 } from "../../../utils";
 import { getDaylight } from "../api/daylightApi";
 import { useCallback, useState } from "react";
@@ -26,7 +26,7 @@ export const useDaylight = () => {
         mutationFn: (city: FoundCity) => getDaylight(city),
         onMutate: (city: FoundCity) => {
             setDaylightMessage({
-                message: `Adding ${city.name}...`,
+                message: `Adding ${city.formatted.split(",")[0]}...`,
                 type: "info",
             });
             clearMessage();
@@ -72,9 +72,8 @@ export const useDaylight = () => {
             }
         },
         onError: (error: unknown) => {
-            console.log("Daylight error", error);
             const errorMessage =
-                error instanceof Error ? error.message : "Search failed";
+                error instanceof Error ? error.message : "Something went wrong";
             setDaylightMessage(nullMessage);
             setDaylightMessage({ message: errorMessage, type: "error" });
             clearMessage();
