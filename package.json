@@ -4,7 +4,7 @@
     "type": "module",
     "scripts": {
         "start": "npm run build && php artisan serve",
-        "setup": "composer install && npm install && php artisan key:generate",
+        "setup": "npm install && composer install && php artisan key:generate",
         "build": "vite build",
         "dev": "vite",
         "test": "vitest",
