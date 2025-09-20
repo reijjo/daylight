@@ -1,5 +1,5 @@
-import { FindCityForm } from "./FindCityForm";
-import { renderWithQueryClient } from "../../../../tests/test-utils";
+import { FindCityForm } from "../../../../features/homepage/components/findCityForm/FindCityForm";
+import { renderWithQueryClient } from "../../../test-utils";
 import { beforeEach, describe, expect, test, vi } from "vitest";
 import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";

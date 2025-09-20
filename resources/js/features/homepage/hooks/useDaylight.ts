@@ -5,7 +5,7 @@ import {
     nullMessage,
     MAX_CITIES,
     FoundCity,
-} from "../../../utils";
+} from "@utils/index";
 import { getDaylight } from "../api/daylightApi";
 import { useCallback, useState } from "react";
 

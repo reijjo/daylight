@@ -1,4 +1,4 @@
-import { MessageProps } from "../../utils";
+import { MessageProps } from "@utils/types";
 
 export const Message = ({ message, type }: MessageProps) => {
     if (message)

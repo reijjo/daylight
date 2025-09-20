@@ -1,15 +1,11 @@
 import { beforeEach, describe, expect, test, vi } from "vitest";
-import {
-    getCities,
-    getDaylight,
-} from "../../../features/homepage/api/daylightApi";
+import { getDaylight } from "@features/homepage/api/daylightApi";
 import { renderHook, waitFor } from "@testing-library/react";
 import { createWrapper } from "../../test-utils";
-import { FoundCity } from "../../../utils";
-import { useExampleCity } from "../../../features/homepage/hooks/useExampleCity";
+import { HARD_HELSINKI } from "@utils/index";
+import { useExampleCity } from "@features/homepage/hooks/useExampleCity";
 
-vi.mock("../../../features/homepage/api/daylightApi");
-const mockGetCities = vi.mocked(getCities);
+vi.mock("@features/homepage/api/daylightApi");
 const mockGetDaylight = vi.mocked(getDaylight);
 
 beforeEach(() => {
@@ -17,14 +13,6 @@ beforeEach(() => {
 });
 
 describe("useExampleCity", () => {
-    const mockHelsinkiCity: FoundCity = {
-        place_id: 1,
-        name: "Helsinki",
-        display_name: "Helsinki, Finland",
-        lat: "60.1639",
-        lon: "24.9384",
-    };
-
     const mockDaylightData = {
         id: 1,
         city: "Helsinki",
@@ -37,7 +25,6 @@ describe("useExampleCity", () => {
     };
 
     test("Successfully fetches example city", async () => {
-        mockGetCities.mockResolvedValue([mockHelsinkiCity]);
         mockGetDaylight.mockResolvedValue(mockDaylightData);
 
         const { result } = renderHook(() => useExampleCity(), {
@@ -48,8 +35,7 @@ describe("useExampleCity", () => {
             expect(result.current.exampleDaylight).toEqual(mockDaylightData);
         });
 
-        expect(mockGetCities).toHaveBeenCalledWith("helsinki");
-        expect(mockGetDaylight).toHaveBeenCalledWith(mockHelsinkiCity);
+        expect(mockGetDaylight).toHaveBeenCalledWith(HARD_HELSINKI);
         expect(result.current.exampleDaylight).toEqual(mockDaylightData);
     });
 });

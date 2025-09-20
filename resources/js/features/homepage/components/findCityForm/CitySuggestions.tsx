@@ -1,4 +1,4 @@
-import { FoundCity } from "../../../../utils";
+import { FoundCity } from "@utils/index";
 
 interface CitySuggestionsProps {
     suggestions: FoundCity[] | null;

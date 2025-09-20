@@ -1,7 +1,7 @@
 import { Head } from "@inertiajs/react";
 import { ReactNode } from "react";
 
-import bg from "../../../assets/images/bg-test.webp";
+import bg from "@images/bg-test.webp";
 import { Footer } from "./Footer";
 
 interface LayoutProps {

@@ -1,4 +1,4 @@
-import close from "../../../../assets/images/close.png";
+import close from "@images/close.png";
 
 interface CloseButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
     onClick: () => void;
