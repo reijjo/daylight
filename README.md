@@ -34,6 +34,7 @@ VITE_GEOAPI_KEY=YOUR_OPENCAGEDATA_API_KEY_HERE_!
 Run `npm run setup` at first to install all necessary dependencies
 
 -   If there is an error, check the `package.json` file and run the commands one by one that is under `scripts` and `setup`
+-   Answer `Yes` to the SQL questions.
 
 ## Production
 
