@@ -1,11 +1,10 @@
-import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it, vi } from "vitest";
 import { CityListItem } from "./CityListItem";
 import { mockDaylightData } from "../../../../tests/mocks/mocks";
 
-describe("CITYLISTITEM", () => {
+describe("CityListItem.tsx", () => {
     it("renders CityListItem", () => {
         render(<CityListItem city={mockDaylightData} removeCity={() => {}} />);
         expect(screen.getByText(mockDaylightData.city)).toBeInTheDocument();

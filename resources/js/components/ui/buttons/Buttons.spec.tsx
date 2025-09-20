@@ -24,7 +24,7 @@ describe("Buttons", () => {
             );
 
             const button = screen.getByRole("button");
-            expect(button.className).toContain("absolute top-6 right-6");
+            expect(button).toHaveClass("absolute top-6 right-6");
         });
 
         test("default absolute values", () => {
