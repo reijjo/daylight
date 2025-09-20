@@ -2,7 +2,6 @@ import { getCities, getDaylight } from "@features/homepage/api/daylightApi";
 import axios, { isAxiosError } from "axios";
 import { describe, it, expect, vi, beforeEach } from "vitest";
 
-// Mock axios
 vi.mock("axios", () => ({
     default: {
         get: vi.fn(),
@@ -10,17 +9,8 @@ vi.mock("axios", () => ({
     isAxiosError: vi.fn(),
 }));
 
-// Cast to mock functions for type safety
-const mockAxiosGet = axios.get as ReturnType<typeof vi.fn>;
-const mockIsAxiosError = isAxiosError as unknown as ReturnType<typeof vi.fn>;
-
-// Mock environment variables
-vi.mock("import.meta", () => ({
-    env: {
-        VITE_GEOAPI: "https://api.opencagedata.com/geocode/v1/json",
-        VITE_GEOAPI_KEY: "test-api-key",
-    },
-}));
+const mockAxiosGet = vi.mocked(axios.get);
+const mockIsAxiosError = vi.mocked(isAxiosError);
 
 describe("API Functions", () => {
     beforeEach(() => {

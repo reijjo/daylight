@@ -2,16 +2,13 @@ import CityList from "@features/homepage/components/citylist/CityList";
 import { DaylightData } from "@utils/types";
 import { renderWithQueryClient } from "../../../test-utils";
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import { HARD_HELSINKI } from "@utils/constants";
-import { waitFor, screen } from "@testing-library/react";
+import { waitFor } from "@testing-library/react";
 
 vi.mock("@features/homepage/hooks");
 
 import { useExampleCity, useDaylight } from "@features/homepage/hooks";
-import { mockDaylightData } from "../../../mocks/mocks";
 
 const mockUseExampleCity = vi.mocked(useExampleCity);
-const mockUseDaylight = vi.mocked(useDaylight);
 
 beforeEach(() => {
     vi.clearAllMocks();

@@ -24,7 +24,9 @@ describe("Charts.tsx", () => {
             />
         );
 
-        const switchButton = screen.getByRole("button", { name: /switch to/i });
+        const switchButton = screen.getByRole("button", {
+            name: /switch to linechart/i,
+        });
         await userEvent.click(switchButton);
 
         expect(screen.getByText("minutes")).toBeInTheDocument();
