@@ -26,8 +26,6 @@ export const CitySuggestions = ({
         );
     };
 
-    console.log("suggestions", suggestions);
-
     return (
         <>
             {suggestions && suggestions.length > 0 && (

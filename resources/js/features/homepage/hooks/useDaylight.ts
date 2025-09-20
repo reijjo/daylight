@@ -59,17 +59,18 @@ export const useDaylight = () => {
 
                     return prev.map((c) => (c.id === newCity.id ? newCity : c));
                 }
+
+                if (data.message) {
+                    setDaylightMessage(nullMessage);
+                    setDaylightMessage({
+                        message: data.message,
+                        type: "success",
+                    });
+                    clearMessage();
+                }
+
                 return [...prev, newCity];
             });
-
-            if (data.message) {
-                setDaylightMessage(nullMessage);
-                setDaylightMessage({
-                    message: data.message,
-                    type: "success",
-                });
-                clearMessage();
-            }
         },
         onError: (error: unknown) => {
             const errorMessage =

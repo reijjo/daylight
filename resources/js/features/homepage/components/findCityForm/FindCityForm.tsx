@@ -32,7 +32,6 @@ export const FindCityForm = ({ handleCitySelect, msg }: FindCityFormProps) => {
     };
 
     const onCitySelect = async (city: FoundCity) => {
-        console.log("city", city);
         handleCitySelect(city);
         setValue("city", "");
         clearErrors("city");
