@@ -1,10 +1,48 @@
 # daylight
 
+# What is this?
+
 A web app that visualizes how daylight hours change throughout the year in different Finnish cities.
 
-## What is this?
+# How to use?
 
-## How to use?
+## IMPORTANTE!
+
+Rename the `.env.example` file to `.env`!
+
+Go to `https://opencagedata.com/` and make an account so you can get the `apikey` for finding cities.
+
+-   Add the `apikey` in the bottom on the `.env` file:
+
+```.env
+VITE_GEOAPI_KEY=YOUR_OPENCAGEDATA_API_KEY_HERE_!
+```
+
+<details>
+	<summary>requirements</summary>
+
+### Make sure you have PHP, Composer and Laravel installed
+
+-   `/bin/bash -c "$(curl -fsSL https://php.new/install/mac/8.4)"` to install
+
+### Also have Node.js installed
+
+-   https://nodejs.org/en/download
+
+</details>
+
+## Production
+
+Run `npm run start` and go `http://localhost:8000/` for your project
+
+-   If that doesnt work run `npm install` -> `npm run build` -> `php artisan serve`
+-   Sometimes `npm run clean` helps
+
+## Dev environment
+
+Run frontend and backend in different terminals: `npm run dev` for react stuff and `php artisan serve` for backend
+
+-   `http://localhost:8000/` for your project
 
 ### Testing
 
@@ -13,6 +51,13 @@ Run frontend unit tests with `npm run test`
 -   or to see the test coverage run `npm run test:cover`
 
 ## Tech Stack
+
+### With what?
+
+## This project is done with `React`, `TypeScript`, `TailwindCSS` and `Laravel`
+
+-   `TanStack Query` for queries
+-   `OpenCage Geocoding API` for finding cities and langitudes and longitudes
 
 ## Task
 
