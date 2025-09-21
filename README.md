@@ -4,7 +4,7 @@ A web app that visualizes how daylight hours change throughout the year in diffe
 
 # How to use?
 
-## Important!
+### Important!
 
 Rename the `.env.example` file to `.env`!
 
@@ -19,43 +19,43 @@ VITE_GEOAPI_KEY=YOUR_OPENCAGEDATA_API_KEY_HERE_!
 <details>
 	<summary>Requirements</summary>
 
-### Make sure you have PHP, Composer and Laravel installed
+#### Make sure you have PHP, Composer and Laravel installed
 
 -   `/bin/bash -c "$(curl -fsSL https://php.new/install/mac/8.4)"` to install
 
-### Also have Node.js installed
+#### Also have Node.js installed
 
 -   https://nodejs.org/en/download
 
 </details>
 
-## Setup
+### Setup
 
-Run `npm run setup` at first to install all necessary dependencies
+Run `npm run setup` first to install all dependencies.
 
--   If there is an error, check the `package.json` file and run the commands one by one that is under `scripts` and `setup`
--   Answer `Yes` to the SQL questions.
+-   If anything fails, open `package.json` and run the commands listed under `scripts.setup` one by one.
+-   If prompted about database/SQL during setup, answer “Yes”.
 
-## Production
+### Production
 
 Run `npm run start` and go `http://localhost:8000/` for your project
 
 -   If that doesn't work run `npm install` -> `npm run build` -> `php artisan serve`
 -   Sometimes `npm run clean` helps
 
-## Dev environment
+### Dev environment
 
 Run frontend and backend in different terminals: `npm run dev` for React stuff and `php artisan serve` for backend
 
--   `http://localhost:8000/` for your project
+-   Open <http://localhost:8000/> for your project
 
-### Testing
+# Testing
 
 Run frontend unit tests with `npm run test`
 
 -   or to see the test coverage run `npm run test:cover`
 
-## Tech Stack
+# Tech Stack
 
 ### With what?
 
