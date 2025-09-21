@@ -4,12 +4,12 @@
     "type": "module",
     "scripts": {
         "start": "php artisan serve",
-        "setup": "npm install && composer install && php artisan key:generate && php artisan migrate --force && npm run build",
+        "setup": "npm run clean && npm install && composer install && php artisan key:generate && php artisan migrate --force && npm run build",
         "build": "vite build",
         "dev": "vite",
         "test": "vitest",
         "test:cover": "vitest run --coverage",
-        "clean": "rm -rf node_modules .bun bun.lockb **/dist"
+        "clean": "rm -rf node_modules .bun bun.lockb package-lock.json **/dist"
     },
     "devDependencies": {
         "@tailwindcss/vite": "^4.0.0",
