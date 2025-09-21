@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title inertia>Todo List</title>
+        <title inertia>Daylight</title>
 
 				<!-- React/Vite/Inertia -->
 				 @viteReactRefresh
