@@ -31,10 +31,10 @@ VITE_GEOAPI_KEY=YOUR_OPENCAGEDATA_API_KEY_HERE_!
 
 ### Setup
 
-Run `npm run setup` at first to install all necessary dependencies
+Run `npm run setup` first to install all dependencies.
 
--   If there is an error, check the `package.json` file and run the commands one by one that is under `scripts` and `setup`
--   Answer `Yes` to the SQL questions.
+-   If anything fails, open `package.json` and run the commands listed under `scripts.setup` one by one.
+-   If prompted about database/SQL during setup, answer “Yes”.
 
 ### Production
 
@@ -47,7 +47,7 @@ Run `npm run start` and go `http://localhost:8000/` for your project
 
 Run frontend and backend in different terminals: `npm run dev` for React stuff and `php artisan serve` for backend
 
--   `http://localhost:8000/` for your project
+-   Open <http://localhost:8000/> for your project
 
 # Testing
 
