@@ -4,8 +4,6 @@ A web app that visualizes how daylight hours change throughout the year in diffe
 <img width="800" height="600" alt="Screenshot 2025-09-21 at 15 04 38" src="https://github.com/user-attachments/assets/e27e21a2-fc18-4bb4-93f7-f3b8fb53bbce" />
 <img width="800" height="600" alt="Screenshot 2025-09-21 at 15 05 02" src="https://github.com/user-attachments/assets/5367e6d9-994a-4702-997c-3e98b64154a5" />
 
-
-
 # How to use?
 
 ## Live
@@ -15,7 +13,6 @@ Try it: <https://daylight-production-0122.up.railway.app/>
 -   Deployed on [Railway](https://railway.app/) free tier — the app may sleep when idle.
 
 ## Local
-=======
 
 ### Important!
 
