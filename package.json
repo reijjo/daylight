@@ -4,11 +4,7 @@
     "type": "module",
     "scripts": {
         "start": "npm run build && php artisan serve",
-<<<<<<< HEAD
-        "setup": "composer install && npm install && php artisan key:generate && php artisan migrate -y",
-=======
-        "setup": "npm install && composer install && php artisan key:generate && php artisan migrate",
->>>>>>> 439dabb56d98f773e4fc146c1abeffa1e1edc227
+        "setup": "npm install && composer install && php artisan key:generate && php artisan migrate --force",
         "build": "vite build",
         "dev": "vite",
         "test": "vitest",
