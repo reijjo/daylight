@@ -9,9 +9,7 @@
         "dev": "vite",
         "test": "vitest",
         "test:cover": "vitest run --coverage",
-        "clean": "rm -rf node_modules .bun bun.lockb package-lock.json **/dist",
-        "render-build": "composer install --optimize-autoloader --no-dev && npm install && npm run build",
-        "render-start": "php artisan key:generate --force && php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=$PORT"
+        "clean": "rm -rf node_modules .bun bun.lockb package-lock.json **/dist"
     },
     "devDependencies": {
         "@tailwindcss/vite": "^4.0.0",
