@@ -1,6 +1,10 @@
 # What is this?
 
 A web app that visualizes how daylight hours change throughout the year in different Finnish cities.
+<img width="800" height="600" alt="Screenshot 2025-09-21 at 15 04 38" src="https://github.com/user-attachments/assets/e27e21a2-fc18-4bb4-93f7-f3b8fb53bbce" />
+<img width="800" height="600" alt="Screenshot 2025-09-21 at 15 05 02" src="https://github.com/user-attachments/assets/5367e6d9-994a-4702-997c-3e98b64154a5" />
+
+
 
 # How to use?
 
@@ -11,6 +15,7 @@ You can try the project at <https://daylight-production-0122.up.railway.app/>
 -   Deployed with `Railway` at least for a while (as long as the free tier lasts)
 
 ## Local
+=======
 
 ### Important!
 
