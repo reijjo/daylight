@@ -6,9 +6,9 @@ A web app that visualizes how daylight hours change throughout the year in diffe
 
 ## Live
 
-You can try the project at <https://daylight-production-0122.up.railway.app/>
+Try it: <https://daylight-production-0122.up.railway.app/>
 
--   Deployed with `Railway` at least for a while (as long as the free tier lasts)
+-   Deployed on [Railway](https://railway.app/) free tier — the app may sleep when idle.
 
 ## Local
 
