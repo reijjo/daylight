@@ -1,6 +1,6 @@
 export const Hero = () => (
-    <div className="flex flex-col items-center gap-2 max-w-2xl w-9/10 text-white text-balance text-center">
-        <h1 className="text-4xl font-bold uppercase">
+    <div className="flex flex-col items-center gap-2 max-w-2xl w-9/10 text-white text-balance text-center ">
+        <h1 className="text-4xl font-bold uppercase font-lora bg-gradient-to-r from-emerald-100  to-amber-100 bg-clip-text text-transparent">
             Discover daylight hours in Finnish cities
         </h1>
         <h2 className="text-lg ">

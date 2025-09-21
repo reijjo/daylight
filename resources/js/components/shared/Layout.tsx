@@ -11,7 +11,7 @@ interface LayoutProps {
 
 export const Layout = ({ children, title }: LayoutProps) => (
     <div
-        className="min-h-screen h-full flex flex-col w-full bg-center bg-cover relative text-white"
+        className="min-h-screen h-full flex flex-col w-full bg-center bg-cover relative text-white font-inter"
         style={{ backgroundImage: `url(${bg})` }}
     >
         <div className="absolute inset-0 bg-black/60"></div>

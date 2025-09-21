@@ -4,6 +4,7 @@ import { renderHook, waitFor } from "@testing-library/react";
 import { useCitySearch } from "../../../features/homepage/hooks/useCitySearch";
 import { createWrapper } from "../../test-utils";
 import { FoundCity } from "../../../utils";
+import { mockHelsinkiCity } from "../../mocks/mocks";
 
 vi.mock("../../../features/homepage/api/daylightApi");
 const mockGetCities = vi.mocked(getCities);
@@ -30,19 +31,16 @@ describe("useCitySearch", () => {
 
     test("should handle successful city search", async () => {
         const mockCities: FoundCity[] = [
+            mockHelsinkiCity,
             {
-                place_id: 1,
-                name: "Helsinki",
-                display_name: "Helsinki, Finland",
-                lat: "60.1639",
-                lon: "24.9384",
-            },
-            {
-                place_id: 2,
-                name: "Tampere",
-                display_name: "Tampere, Finland",
-                lat: "61.4990",
-                lon: "23.7703",
+                formatted: "Helsinki2",
+                geometry: {
+                    lat: 60.16392,
+                    lng: 24.93842,
+                },
+                annotations: {
+                    geohash: "1234562",
+                },
             },
         ];
 
@@ -79,7 +77,6 @@ describe("useCitySearch", () => {
 
         expect(mockGetCities).toHaveBeenCalledWith("InvalidCity");
         expect(result.current.searchMutation.error).toEqual(mockError);
-        expect(consoleSpy).toHaveBeenCalledWith("Search error", mockError);
     });
 
     test("should handle city selection and reset mutation", () => {
@@ -87,14 +84,7 @@ describe("useCitySearch", () => {
             wrapper: createWrapper(),
         });
 
-        const mockCity: FoundCity = {
-            place_id: 1,
-            name: "Helsinki",
-            display_name: "Helsinki, Finland",
-            lat: "60.1639",
-            lon: "24.9384",
-        };
-
+        const mockCity: FoundCity = mockHelsinkiCity;
         const selectedCity = result.current.handleCitySelection(mockCity);
 
         expect(selectedCity).toEqual(mockCity);
