@@ -70,7 +70,7 @@ Run frontend unit tests with `npm run test`
 ### With what?
 
 This project is done with `React`, `TypeScript`, `TailwindCSS` and `Laravel`
-
+-    [`Vitest`](https://vitest.dev/) for frontend tests
 -   [`TanStack Query`](https://tanstack.com/query/latest) for queries
 -   [`OpenCage Geocoding API`](https://opencagedata.com/) for finding cities and latitudes/longitudes
 
